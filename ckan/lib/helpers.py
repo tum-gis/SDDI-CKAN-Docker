@@ -1941,11 +1941,14 @@ def groups_available(am_member=False):
 
 @core_helper
 def organizations_available(
-        permission='manage_group', include_dataset_count=False):
+        permission='manage_group', include_dataset_count=False, user=None):
     '''Return a list of organizations that the current user has the specified
     permission for.
     '''
-    context = {'user': c.user}
+    if user == None:
+        context = {'user': c.user}
+    else:
+        context = {'user': user["name"]}
     data_dict = {
         'permission': permission,
         'include_dataset_count': include_dataset_count}
@@ -2411,6 +2414,7 @@ def get_featured_organizations(count=1):
     of organization_list action function
     '''
     config_orgs = config.get('ckan.featured_orgs', '').split()
+    count = len(config_orgs)
     orgs = featured_group_org(get_action='organization_show',
                               list_action='organization_list',
                               count=count,
@@ -2424,6 +2428,18 @@ def get_featured_groups(count=1):
     of organization_list action function
     '''
     config_groups = config.get('ckan.featured_groups', '').split()
+    count = len(config_groups)
+    #return config_groups
+    groups = []
+    #groups.append(h.get_allowable_children_groups_g('main-categories'))
+    #groups.append(h.get_allowable_children_groups_g('topics'))
+    #groups.append(h.get_allowable_children_groups_g('model-regions'))
+    groups_ = []
+    for gr in groups:
+        if gr in config_groups:
+            groups_.append(gr)
+           
+    #return groups_
     groups = featured_group_org(get_action='group_show',
                                 list_action='group_list',
                                 count=count,

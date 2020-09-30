@@ -3,7 +3,7 @@
 {% block subtitle %}{{ _('Edit datasets') }} - {{ super() }}{% endblock %}
 
 {% block page_primary_action %}
-  {% snippet 'snippets/add_dataset.html', group=c.group_dict.id %}
+  {{ h.snippet ('snippets/add_dataset.html', dataset_type='datahub_resource') }}
 {% endblock %}
 
 {% block primary_content_inner %}

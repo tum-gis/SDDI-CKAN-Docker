@@ -1,3 +1,4 @@
+
 {% extends "user/read_base.html" %}
 
 {% block page_primary_action %}
@@ -19,7 +20,9 @@
       <p class="empty">
         {{ _('You haven\'t created any datasets.') }}
         {% if h.check_access('package_create') %}
-          {% link_for _('Create one now?'), controller='package', action='new' %}
+          {#% link_for _('Create one now?'), controller='package', action='new' %#}
+{% set dataset_type='datahub_resource' %}
+{% link_for _('Add Dataset'), controller='package', action='new', named_route=dataset_type + '_new' %}
         {% endif %}
       </p>
     {% else %}
@@ -30,3 +33,4 @@
   {% endif %}
   {% endblock %}
 {% endblock %}
+Get DataSend Data

@@ -58,7 +58,6 @@ class Member(vdm.sqlalchemy.RevisionedObjectMixin,
              domain_object.DomainObject):
     '''A Member object represents any other object being a 'member' of a
     particular Group.
-
     Meanings:
     * Package - the Group is a collection of Packages
                  - capacity is 'public', 'private'
@@ -187,10 +186,8 @@ class Group(vdm.sqlalchemy.RevisionedObjectMixin,
         '''Returns the groups in all levels underneath this group in the
         hierarchy. The ordering is such that children always come after their
         parent.
-
         :rtype: a list of tuples, each one a Group ID, name and title and then
         the ID of its parent group.
-
         e.g.
         >>> dept-health.get_children_group_hierarchy()
         [(u'8ac0...', u'national-health-service', u'National Health Service', u'e041...'),
@@ -202,10 +199,27 @@ class Group(vdm.sqlalchemy.RevisionedObjectMixin,
             params(id=self.id, type=type).all()
         return results
 
+    def get_children_group_hierarchy_g(self, type='group'):
+        '''Returns the groups in all levels underneath this group in the
+        hierarchy. The ordering is such that children always come after their
+        parent.
+        :rtype: a list of tuples, each one a Group ID, name and title and then
+        the ID of its parent group.
+        e.g.
+        >>> dept-health.get_children_group_hierarchy()
+        [(u'8ac0...', u'national-health-service', u'National Health Service', u'e041...'),
+         (u'b468...', u'nhs-wirral-ccg', u'NHS Wirral CCG', u'8ac0...')]
+        '''
+        
+        results = meta.Session.query(Group.id, Group.name, Group.title, Group.image_url,
+                                     'parent_id').\
+            from_statement(text(HIERARCHY_DOWNWARDS_CTE_g)).\
+            params(id=self.id, type=type).all()
+        return results  
+
     def get_parent_groups(self, type='group'):
         '''Returns this group's parent groups.
         Returns a list. Will have max 1 value for organizations.
-
         '''
         return meta.Session.query(Group).\
             join(Member,
@@ -244,9 +258,7 @@ class Group(vdm.sqlalchemy.RevisionedObjectMixin,
         allowed to be this group's parent. It excludes ones which would
         create a loop in the hierarchy, causing the recursive CTE to
         be in an infinite loop.
-
         :returns: A list of group objects ordered by group title
-
         '''
         all_groups = self.all(group_type=type)
         excluded_groups = set(group_name
@@ -259,22 +271,16 @@ class Group(vdm.sqlalchemy.RevisionedObjectMixin,
     def packages(self, with_private=False, limit=None,
             return_query=False, context=None):
         '''Return this group's active packages.
-
         Returns all packages in this group with VDM revision state ACTIVE
-
         :param with_private: if True, include the group's private packages
         :type with_private: bool
-
         :param limit: the maximum number of packages to return
         :type limit: int
-
         :param return_query: if True, return the SQLAlchemy query object
             instead of the list of Packages resulting from the query
         :type return_query: bool
-
         :returns: a list of this group's packages
         :rtype: list of ckan.model.package.Package objects
-
         '''
         user_is_org_member = False
         context = context or {}
@@ -424,8 +430,23 @@ HIERARCHY_UPWARDS_CTE = """WITH RECURSIVE parenttree(depth) AS (
     WHERE PG.table_id = M.group_id AND M.table_name = 'group'
           AND M.state = 'active' AND PG.depth < {max_recurses}
     )
-
 SELECT G.*, PT.depth FROM parenttree AS PT
     INNER JOIN public.group G ON G.id = PT.table_id
     WHERE G.type = :type AND G.state='active'
     ORDER BY PT.depth DESC;""".format(max_recurses=MAX_RECURSES)
+    
+HIERARCHY_DOWNWARDS_CTE_g = """WITH RECURSIVE child(depth) AS
+(
+    -- non-recursive term
+    SELECT 0, * FROM member
+    WHERE table_id = :id AND table_name = 'group' AND state = 'active'
+    UNION ALL
+    -- recursive term
+    SELECT c.depth + 1, m.* FROM member AS m, child AS c
+    WHERE m.table_id = c.group_id AND m.table_name = 'group'
+          AND m.state = 'active' AND c.depth < {max_recurses}
+)
+SELECT G.id, G.name, G.title, G.image_url, child.depth, child.table_id as parent_id FROM child
+    INNER JOIN public.group G ON G.id = child.group_id
+    WHERE G.type = :type AND G.state='active'
+    ORDER BY child.depth ASC;""".format(max_recurses=MAX_RECURSES)

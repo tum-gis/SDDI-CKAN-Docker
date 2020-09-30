@@ -1,20 +1,57 @@
 {% trans %}
-<p>CKAN is the world’s leading open-source data portal platform.</p>
+<p><b>Themenplattform Smarte Städte und Regionen</b><br>
+Dieser bayernweite Katalogdienst ist zentraler Baustein des SDDI-Öko-Systems (Link). Er ist Anlaufstelle für alle bisher im Aufbau befindlichen lokalen/regionalen Katalogdienste der 6 SDDI-Modellregionen (Haßfurt, Garching, Grafing, LK Wunsiedel, LK Neustadt a.d. Waldnaab, LK Freyung-Grafenau) sowie für andere interessierte Regionen. Hier werden vor allem Regionen-übergreifende Dienste, APP´s,, API´s und sonstige Informationen zum Betrieb einer SDDI gebündelt. Die ZD.B-Themenplattform Smart Cities and Regions betreibt diesen Katalogdienst gemeinsam mit dem Lehrstuhl für Geoinformatik der Technischen Universität München.</p>
 
-<p>CKAN is a complete out-of-the-box software solution that makes data
-accessible and usable – by providing tools to streamline publishing, sharing,
-finding and using data (including storage of data and provision of robust data
-APIs). CKAN is aimed at data publishers (national and regional governments,
-companies and organizations) wanting to make their data open and available.</p>
+<p><b>SDDI-Ökosystem</b><br>
+<div>
+<img src="https://catalog.gis.lrg.tum.de/base/images/custom/sddi_eco_system.jpg" alt="SDDI-Ökosystem" width="500px"/>
+</div>
+Das SDDI-Ökosystem besteht aus vier ineinandergreifenden Bausteinen. (1) Leitfaden, (2) Software, (3) Organisation, (4) Community. 
+In 2020 wird ein SDDI-Leitfaden vom Lehrstuhl für Geoinformatik der Technischen Universität München entwickelt. Der Leitfaden soll für alle an der Einführung einer offenen regionalen Dateninfrastruktur interessierten Akteure eine kostenlose, niedrigschwellige technisch-organisatorische Hilfestellung bereitstellen.
 
-<p>CKAN is used by governments and user groups worldwide and powers a variety
-of official and community data portals including portals for local, national
-and international government, such as the UK’s <a href="http://data.gov.uk">data.gov.uk</a> and the
-European Union’s <a href="http://publicdata.eu/">publicdata.eu</a>, the Brazilian <a href="http://dados.gov.br/">dados.gov.br</a>, Dutch and
-Netherland government portals, as well as city and municipal sites in the US,
-UK, Argentina, Finland and elsewhere.</p>
+Zur einfachen technischen Realisierung der SDDI-Infrastruktur arbeiten wir durchgängig mit vorhandener Open-Source Software. D.h. zur systematischen Darstellung der Datensätze unterschiedlichster Dateneigner nutzen wir die Katalog-Software CKAN. Zur einfachen geobasierten Visualisierung der Datensätze dient das mittlerweile in zahlreichen deutschen Gebietskörperschaften eingesetzten Masterportal.
 
-<p>CKAN: <a href="http://ckan.org/">http://ckan.org/</a><br />
-CKAN Tour: <a href="http://ckan.org/tour/">http://ckan.org/tour/</a><br />
-Features overview: <a href="http://ckan.org/features/">http://ckan.org/features/</a></p>
+Damit das Öko-System auch nachhaltig betrieben werden kann entwickeln wir, parallel zur technisch inhaltlichen Realisierung des SDDI-Öko-Systems, auch ein geeignetes Geschäftsmodell. Eine noch zu gründende Datengenossenschaft für Dateneigner soll ab 2021 die Weiterentwicklung und Umsetzung des Katalogdienstbetriebes sicherstellen. Konkret soll diese Datengenossenschaft professionelle Services für die Datennutzung, Veredelung und vor allem eine sektorübergreifende Nutzung für seine Mitglieder und darüber hinaus bereitstellen. Ferner soll für interessierte Regionen und Akteure das vorhandene SDDI-Know-How im Rahmen eines SDDI-Hubs professionell vermittelt werden können.
+
+Gemeinsam mit interessierten Akteuren aus den Modellregionen sowie den involvierten wissenschaftlichen Einrichtungen und Community-Mitgliedern aus der CKAN & Masterportal-Szene soll eine SDDI-Community aufgebaut werden, welche die Weiterentwicklung des SDDI-Öko-Systems vorantreibt.</p>
+
+<p><b>Strukturierung der Datensätze</b><br>
+Die Zuordnung der Datensätze in Gruppen, sowie die Anzahl und Aufteilung der Gruppen selbst, istdas Ergebnis von langer und intensiver Überlegungen. Durch die Unterteilung in drei Hauptgruppen wird eine einfache Suche von Datensätzen, sowie eine leicht rsichtliche Zuordnung zu besimmten Themenbereichen ermöglicht. Verknüpfungen zwischen einzelnen Datensätzen sind durch eine spezielle Erweiterung möglich und erleichtern die Navigation.</p>
+
+<p><b>Smart District Data Infrastructure (SDDI)</b><br>
+Die Katalogplattform ist Teil des SDDI-Konzepts, das für die Datenstrukturierung im Bereich der Smarten Städte und Regionen angewendet wird. Die Idee der SDDI ist im Zuge des europaweiten Smart Sustainable Districts Projektes am Lehrstuhl für Geoinformatik an der TUM entstanden, und ist ebenfalls das Ergebnis von sehr langen und ausgiebigen Überlegungen. Im Mittelpunkt der SDDI steht de Katalogplattform, welche die Metadaten der einzelnen Datensätze verwaltet und eine Übersicht über den Gesamtbestand aller Verfügbaren Daten liefert.<br><br><img src="http://129.187.38.46/base/images/custom/sddi_concept_red.png" alt="SDDI-Konzept" style="width:800px"></p>
+
+<p><b>Technische Umsetzung</b><br>
+Die Technische Umsetzung der Katalogplattform basiert auf der Open-Source Software CKAN <a href="http://ckan.org/">http://ckan.org/</a>. Für einige der Funktionalitäten werden Erweiterungen eingesetzt, welche zum einne Teil aus der offiziellen CKAN-Erweiterungsbibliothek stammen, und zum anderen Teil am Lehrstuhl für Geoinformatik der TUM entwickelt wurden. Die Katalogplattform wird im Backend über eine PostgreSQL Datenbank <a href="http://postgresql.org/">http://postgresql.org/</a> betrieben, weche auch die Speicherung und Verarbeitung von raumbezogenen Daten ermöglicht.</p>
+<br><br>
+
+<b>Verwendete Erweiterungen:<br>
+<li><a href="https://github.com/ckan/ckan/tree/master/ckanext/stats">Stats</a></li>
+<li><a href="https://github.com/ckan/ckan/tree/master/ckanext/textview">TextView</a></li>
+<li><a href="https://github.com/ckan/ckan/tree/master/ckanext/imageview">ImageView</a></li>
+<li><a href="https://github.com/ckan/ckan/tree/master/ckanext/reclineview">ReclineView</a></li>
+<li><a href="">Scheming</a></li>
+<li><a href="">Hierarchy</a></li>
+<li><a href="">Spatial</a></li>
+<li><a href="">Repeating</a></li>
+<li><a href="">Composite</a></li>
+<li><a href="">Display Group</a></li>
+<li><a href="">Form Group</a></li>
+<li><a href="">Relation</a></li>
+<li><a href="https://github.com/ckan/ckanext-disqus">Disqus</a></li>
+<li><a href="">TemporalSearch</a></li>
+<li><a href="">UserAutoAddGroup</a></li>
+<li><a href="">Restricted</a></li>
+</b></p>
+<br><br>
+
+<p><b>Impressum</b><br>
+Themenplattform Smart Cities and Regions<br>
+Zentrum Digitalisierung.Bayern<br>
+Lichtenbergstraße 8,<br>
+85748 Garching bei München<br>
+Email: willi.steincke@bayern-innovativ.de
+</p>
+
+
 {% endtrans %}

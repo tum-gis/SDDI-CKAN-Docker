@@ -17,7 +17,10 @@
 <div role="main">
   <div class="container">
     <div class="row row2">
-      <div class="col-md-6 col1">
+        <div class="col-md-6 col1">
+        <div class="box" style="background-color:#0065bd;">
+        <a href="{{ h.url_for('group') }}"><center><h2 style="color: white; border: 10px" >{% trans %}Groups{% endtrans %}</h2></center>
+          </a></div>
         {# Note: this featured_group block is used as an example in the theming
            tutorial in the docs! If you change this code, be sure to check
            whether you need to update the docs. #}
@@ -28,10 +31,13 @@
         {# End template block example. #}
       </div>
       <div class="col-md-6 col2">
+              <div class="box" style="background-color:#0065bd;">
+        <a href="{{ h.url_for('organization') }}"><center><h2 style="color: white; border: 10px">{% trans %}Organizations{% endtrans %}</h2></center>
+          </a></div>
         {% block featured_organization %}
           {% snippet 'home/snippets/featured_organization.html' %}
         {% endblock %}
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </div>

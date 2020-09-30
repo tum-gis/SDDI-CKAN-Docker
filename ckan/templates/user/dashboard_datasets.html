@@ -4,7 +4,7 @@
 
 {% block page_primary_action %}
   {% if h.check_access('package_create') %}
-    {% snippet 'snippets/add_dataset.html' %}
+    {{ h.snippet ('snippets/add_dataset.html', dataset_type='datahub_resource') }}
   {% endif %}
 {% endblock %}
 

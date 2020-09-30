@@ -97,7 +97,19 @@
             <dd class="value"><code>{{ user.apikey }}</code></dd>
           </dl>
         {% endif %}
+
+
+		<dl>
+			{% set org_list = h.organizations_available(permission='manage_group', include_dataset_count=True, user=user) %}
+			<dt>{{ _('Organizations') }}</dt>
+			{% for org in org_list %}
+				<dd> <a href="/organization/{{org.name}}">{{org.title}}</a></dd>
+			{% endfor %}
+        </dl>
+
+
       </div>
+
       {% endblock %}
     {% endblock %}
   </section>

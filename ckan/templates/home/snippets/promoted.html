@@ -5,23 +5,25 @@
     {% if intro %}
       {{ h.render_markdown(intro) }}
     {% else %}
-      <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
-      <p>
-        {% trans %}This is a nice introductory paragraph about CKAN or the site
-        in general. We don't have any copy to go here yet but soon we will
-        {% endtrans %}
-      </p>
+      <h1 class="page-heading">{{ _("Willkommen auf der Katalogplattform der Smarten Städte und Regionen Bayern") }}</h1>
     {% endif %}
   </header>
 
   {% block home_image %}
-    <section class="featured media-overlay hidden-xs">
-      <h2 class="media-heading">{% block home_image_caption %}{{ _("This is a featured section") }}{% endblock %}</h2>
-      {% block home_image_content %}
+
+      
+      {#% block home_image_content %}
         <a class="media-image" href="#">
-          <img class="img-responsive" src="{{ h.url_for_static('/base/images/placeholder-420x220.png') }}" alt="Placeholder" width="420" height="220" />
+          <img class="img-responsive" src="/base/images/smart_regions_bayern.png" alt="Smart City and Region" width="300" height="309"/>
         </a>
-      {% endblock %}
+      {% endblock %#}
     </section>
+	{% block home_text %}
+      <p>
+        {% trans %}
+Ihre Informationsdrehscheibe rund um das Thema Smarte Städte und Regionen mit Informationen zu Daten, Services, Anwendungen und Projekten in den Modellregionen Bayerns.
+        {% endtrans %}
+      </p>
+	{% endblock %}
   {% endblock %}
 </div>
