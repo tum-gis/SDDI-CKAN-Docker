@@ -3,9 +3,9 @@ set ckan_url="http://localhost:5000"
 
 
 REM Docker-Container erstellen
-cd contrib/docker
+cd "SDDI-CKAN-Docker source files/contrib/docker"
 docker-compose up -d --build
-
+pause
 
 REM PostGIS Datenbank konfigurieren
 docker exec -it db psql -U ckan -d ckan -f /usr/share/postgresql/11/contrib/postgis-2.5/postgis.sql
