@@ -18,6 +18,7 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 * [Inhalt](#inhalt)
 * [SDDI und die Katalogplattform](#sddi-und-die-katalogplattform)
 * [Installation](#installation)
+* [Gruppen und Organisationen](gruppen-und-organisationen)
 
 
 ## SDDI und die Katalogplattform
