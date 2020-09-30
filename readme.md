@@ -4,10 +4,19 @@ Die Themenplattform Smarte Städte und Regionen setzt unter anderem die [Smart D
 
 Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN-Katalogplattform](https://ckan.org) mitsamt allen für SDDI relevanten Erweiterungen in einem Docker Container aufzusetzen.
 
+
 ## Features
 
-Features
+* Setup Script um die Katalogplattform mittels docker-compose aufzusetzen
+* Setup Scripte um vordefinierte Gruppen und Organisationen im Katalog anzulegen
+* Setup Scripte mit Beispielen für eigene Gruppen und Organisationen
+
 
 ## Inhalt
 
-Inhalt
+* [Features](#features)
+* [Inhalt](#inhalt)
+* [SDDI und die Katalogplattform](#sddi-und-die-katalogplattform)
+
+
+## SDDI und die Katalogplattform
