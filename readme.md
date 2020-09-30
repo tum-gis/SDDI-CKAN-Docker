@@ -54,17 +54,17 @@ git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 ### Gruppen
 
 Im Ramen der Themenplattform Smarte Städte und Regionen sind 8 Hauptkategorien, und 16 Nebenkategorien entstanden, die dabei helfen Datensätze übersichtlich zu ordnen. Diese Gruppen können mittels eines Scriptes installiert werden.
-Führen Sie hierzu die Datei *Setup Gruppen SDDI Themenplattform* aus.
+Führen Sie hierzu die Datei *Setup Gruppen SDDI Themenplattform.bat* aus.
 
-Um eigene Gruppen zu erstellen, kann die Datei *Setup Gruppen Template* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
+Um eigene Gruppen zu erstellen, kann die Datei *Setup Gruppen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
 
 ### Gruppen
 
 In CKAN werden Benuter verschiedenen Organisationen zugeordnet. Die Katalogplattform kann direkt mit den organisationen befüllt werden, welche in der Themenplattform Smarte Städte und Regionen eine Rolle spielen.
-Führen Sie hierzu die Datei *Setup Organisationen SDDI Themenplattform* aus.
+Führen Sie hierzu die Datei *Setup Organisationen SDDI Themenplattform.bat* aus.
 
-Um eigene Gruppen zu erstellen, kann die Datei *Setup Organisationen Template* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
+Um eigene Gruppen zu erstellen, kann die Datei *Setup Organisationen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
 
 ## Weitere Befehle ?
