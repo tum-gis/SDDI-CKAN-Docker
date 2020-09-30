@@ -29,6 +29,7 @@ ENV CKAN_HOME /usr/lib/ckan
 ENV CKAN_VENV $CKAN_HOME/venv
 ENV CKAN_CONFIG /etc/ckan
 ENV CKAN_STORAGE_PATH=/var/lib/ckan
+ENV CKAN_SQLALCHEMY_URL postgresql://ckan:$ckan@db/ckan
 
 # Build-time variables specified by docker-compose.yml / .env
 ARG CKAN_SITE_URL
@@ -58,4 +59,29 @@ ENTRYPOINT ["/ckan-entrypoint.sh"]
 USER ckan
 EXPOSE 5000
 
+RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install ckantoolkit
+RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install ckanapi
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install geoalchemy2
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install git+https://github.com/eawag-rdm/lucparser
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install lxml
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install shapely
+RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/ckan/ckanext-hierarchy.git#egg=ckanext-hierarchy
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-grouphierarchy-deigele.git#egg=ckanext-grouphierarchy-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-scheming-deigele.git#egg=ckanext-scheming-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-spatial-deigele.git#egg=ckanext-spatial-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/ckan/ckanext-geoview.git#egg=ckanext-geoview
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/MandanaMoshref/ckanext-repeating.git#egg=ckanext-repeating
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/MandanaMoshref/ckanext-composite.git#egg=ckanext-composite
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-relation-deigele.git#egg=ckanext-relation-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/ckan/ckanext-disqus.git#egg=ckanext-disqus
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-temporalsearch-deigele.git#egg=ckanext-temporalsearch-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-userautoaddgroup-deigele.git#egg=ckanext-userautoaddgroup-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/WolfgangDeigele/ckanext-restricted-deigele.git#egg=ckanext-restricted-deigele
+# RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/datopian/ckanext-gdpr.git#egg=ckanext-gdpr
+
+
+ADD production.ini $CKAN_CONFIG/production.ini
+
 CMD ["ckan-paster","serve","/etc/ckan/production.ini"]
+
+
