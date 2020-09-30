@@ -46,7 +46,7 @@ git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 ```
 3. Öffenen Sie die Datei */SDDI-CKAN-Docker source files/contrib/docker/.env.template* mit einem Texteditor. Ändern Sie den Wert CKAN_SITE_URL auf die Adresse unter der der Katalog erreichbar sein soll, und setzen Sie ein neues Passwort für die Datenbank im Wert POSTGRES_PASSWORD. Speichern Sie die Datei und benennen Sie sie anschließend in *.env* um.
 4. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten dauern.
-5. Führen Sie die Dateie *Setup Gruppen SDDI Themenplattform* aus. Wird dieser Schritt übersprungen, kann es im Katalog später aktuell noch zu Fehlern kommen.
+5. Führen Sie die Datei *Setup Gruppen SDDI Themenplattform* aus. Wird dieser Schritt übersprungen, kann es aktuell noch im Katalog zu Fehlern kommen.
 
 
 ## Gruppen und Organisationen
