@@ -21,4 +21,4 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 
 ## SDDI und die Katalogplattform
 
-![SDDI] (https://github.com/tum-gis/SDDI-CKAN-Docker/images/sddi.png "SDDI-Konzept")
+![SDDI-Konzept] (https://github.com/tum-gis/SDDI-CKAN-Docker/blob/ckan-sddi/images/sddi.png)
