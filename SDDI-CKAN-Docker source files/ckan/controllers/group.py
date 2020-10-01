@@ -141,7 +141,8 @@ class GroupController(base.BaseController):
         group_type = self._guess_group_type()
 
         page = h.get_page_number(request.params) or 1
-        items_per_page = 21
+        # Changed this value from 21 to fix the organization tab if multiple pages are needed
+        items_per_page = 1000
 
         context = {'model': model, 'session': model.Session,
                    'user': c.user, 'for_view': True,

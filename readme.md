@@ -72,6 +72,38 @@ Führen Sie hierzu die Datei *Setup Organisationen SDDI Themenplattform.bat* aus
 Um eigene Gruppen zu erstellen, kann die Datei *Setup Organisationen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
 
+### Troubleshooting
+
+Nach der Installation empfiehlt es sich die Liste der laufenden Docker COntainer anzuzeigen. Dies geschieht über den Befehle
+```
+docker ps
+```
+Sind hier nicht Folgende Container aufgelistet ist etwas schiefgegangen:
+```
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
+f0558213d9f6        docker_ckan                 "/ckan-entrypoint.sh…"   25 minutes ago      Up 25 minutes       0.0.0.0:5000->5000/tcp   ckan
+76614dd75524        clementmouchet/datapusher   "python datapusher/m…"   29 minutes ago      Up 29 minutes       0.0.0.0:8800->8800/tcp   datapusher
+8a4fa20d7b35        docker_db                   "docker-entrypoint.s…"   29 minutes ago      Up 25 minutes       5432/tcp                 db
+ef2187e5199f        docker_solr                 "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       8983/tcp                 solr
+058ea7466ff5        redis:latest                "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       6379/tcp                 redis
+```
+In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
+
+Über folgenden Befehl können die Docker Volumes (Hier werden die Daten gespeichert) zurückgesetzt werden:
+```
+docker volume ls //Listet die volumes auf
+docker volume prune //Entfernt alle volumes (und alle Daten!)
+docker volume rm [name] //Entfernt ein einzelnes volume
+```
+Beispiel für CKAN volumes:
+```
+docker volume ls
+docker_ckan_config: Enthält die Config Datei (production.ini)
+docker_ckan_home: Enthält die CKAN-Sinatllation mitsamt den Erweiterungen
+docker_ckan_storage: Enthält die gespeicherten Dateien innheralb der Datensätze
+docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Gruppen und Datensätzte)
+```
+
 ## Weitere Befehle ?
 
 
