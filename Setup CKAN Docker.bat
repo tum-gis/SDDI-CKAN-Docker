@@ -4,7 +4,7 @@ cd "SDDI-CKAN-Docker source files/contrib/docker"
 REM Container starten
 docker-compose up -d --build
 
-REM Der Datenbankcontainer muss 2 mal initialisiert werden
+REM Damit der Datenbankcontainer richtig initiiert wird, muss er zwei mal gestartet werden
 docker-compose up -d --build
 
 REM PostGIS Datenbank konfigurieren
