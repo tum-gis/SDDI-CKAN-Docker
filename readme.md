@@ -50,9 +50,9 @@ git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 4. Öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* mit einem Texteditor und geben Sie in Zeile 60 die URL an, unter der der Katalog erreichbar sein wird.
 4. Wenn Sie die Vorauswahl an CKAN-Extensions ändern möchten, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und entfernen in Zeile 106 die entsprechenden Einträge.
 5. Wenn Sie nicht mit der SDDI-Gruppenauswahl arbeiten möchten (Schritt 8), dann müssen Sie die Erweiterungen [grouphierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi), [scheming](https://github.com/tum-gis/ckanext-scheming-sddi) und [userautoaddgroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi) entfernen oder so modifizieren, dass sie mit Ihrer Gruppenauswahl übereinstimmen.
-6. Um den Email-Support zu aktivieren, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und tragen Sie ab zeile 207 die entrpechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
+6. Um den Email-Support zu aktivieren, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und tragen Sie ab Zeile 207 die entrpechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
 7. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten dauern.
-8. Führen Sie die Datei *Setup Gruppen SDDI Themenplattform* aus. Wird dieser Schritt übersprungen, kann es aktuell noch im Katalog zu Fehlern kommen.
+8. Führen Sie die Datei *Setup Gruppen SDDI Themenplattform* aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
 
 
 ## Gruppen und Organisationen
