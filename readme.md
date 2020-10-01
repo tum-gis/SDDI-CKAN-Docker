@@ -40,6 +40,8 @@ Die Katalogplattform basiert auf der Open Source Software [CKAN](https://ckan.or
 
 Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installiert werden kann.
 
+### Basis-Installation
+
 1. Installieren Sie [Docker](https://docs.docker.com/get-docker/) auf Ihrem Betriebssystem.
 2. Clonen Sie die SDDI-CKAN-Docker Installationsdateien in ein beliebiges Verzeichnis auf Ihrem Computer:
 ```bat
@@ -55,18 +57,15 @@ git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 8. Führen Sie die Datei *Setup Gruppen SDDI Themenplattform* aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
 
 
-## Gruppen und Organisationen
+### Gruppen und Organisationen
 
-### Gruppen
-
+#### Gruppen
 Im Ramen der Themenplattform Smarte Städte und Regionen sind 8 Hauptkategorien, und 16 Nebenkategorien entstanden, die dabei helfen Datensätze übersichtlich zu ordnen. Diese Gruppen können mittels eines Scriptes installiert werden.
-Führen Sie hierzu die Datei *Setup Gruppen SDDI Themenplattform.bat* aus.
+Führen Sie hierzu die Datei *Setup Gruppen SDDI Themenplattform.bat* aus. Dieser Schritt sollte während der Installation bereits erfolgt sein.
 
 Um eigene Gruppen zu erstellen, kann die Datei *Setup Gruppen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
-
-### Gruppen
-
+#### Organisationen
 In CKAN werden Benuter verschiedenen Organisationen zugeordnet. Die Katalogplattform kann direkt mit den organisationen befüllt werden, welche in der Themenplattform Smarte Städte und Regionen eine Rolle spielen.
 Führen Sie hierzu die Datei *Setup Organisationen SDDI Themenplattform.bat* aus.
 
