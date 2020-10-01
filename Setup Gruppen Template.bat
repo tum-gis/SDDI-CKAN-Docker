@@ -10,7 +10,8 @@ set ckan_url="http://localhost:5000"
 
 
 
-
+REM Haben Sie die ckan_url angepasst?
+pause
 exit REM Diese Zeile muss entfernt werden. Sie dient als Sicherung, damit die obige URL auch tatsächlich verändert worden ist.
 
 
@@ -20,3 +21,9 @@ docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action gro
 
 REM Beispiel für eine Gruppe, die einer anderen Gruppe untergeordnet ist. Der Wert "name" im "group"-Tag bezieht sich auf den Wert "name" der übergeordneten Gruppe.
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Gruppe zwei' name='gruppe-zwei' image_url='%ckan_url%/base/images/group_icons/gruppe_zwei.jpg' groups:'[{\"capacity\":\"public\",\"name\":\"main-categories\"}]'"
+
+
+
+
+REM Der Setup ist beendet.
+pause

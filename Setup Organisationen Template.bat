@@ -9,3 +9,8 @@ docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action org
 
 REM Beispiel für eine Organisation, die einer anderen Organisation untergeordnet ist. Der Wert "name" im "group"-Tag bezieht sich auf den Wert "name" der übergeordneten Organisation.
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Organisation zwei' name='organisation-zwei' groups:'[{\"capacity\":\"public\",\"name\":\"haupt-organisation\"}]'"
+
+
+
+REM Der Setup ist beendet.
+pause

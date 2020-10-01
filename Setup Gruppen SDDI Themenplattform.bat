@@ -4,14 +4,16 @@ set ckan_url="http://localhost:5000"
 
 
 
-
-exit REM Diese Zeile muss entfernt werden. Sie dient als Sicherung, damit die obige URL auch tatsächlich verändert worden ist.
+REM Haben Sie die ckan_url angepasst?
+pause
+REM exit REM Diese Zeile muss entfernt werden. Sie dient als Sicherung, damit die obige URL auch tatsächlich verändert worden ist.
 
 
 
 
 
 REM Hauptkategorien
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Hauptkategorien' name='main-categories'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Datensatz und Dokumente' name='dataset' image_url='%ckan_url%/base/images/group_icons/dataset.jpg' groups:'[{\"capacity\":\"public\",\"name\":\"main-categories\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Online-Dienst' name='online-service' image_url='%ckan_url%/base/images/group_icons/online_service.png' groups:'[{\"capacity\":\"public\",\"name\":\"main-categories\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Projekt' name='project' image_url='%ckan_url%/base/images/group_icons/project.png' groups:'[{\"capacity\":\"public\",\"name\":\"main-categories\"}]'"
@@ -22,6 +24,7 @@ docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action gro
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Geoobjekt' name='geoobject' image_url='%ckan_url%/base/images/group_icons/geoobject.svg' groups:'[{\"capacity\":\"public\",\"name\":\"main-categories\"}]'"
 
 REM Themen
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Themen' name='topics'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Verwaltung' name='administration' image_url='%ckan_url%/base/images/group_icons/administration.svg' groups:'[{\"capacity\":\"public\",\"name\":\"topics\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Stadtplanung' name='urban-planning' image_url='%ckan_url%/base/images/group_icons/urban_planning.svg' groups:'[{\"capacity\":\"public\",\"name\":\"topics\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Umwelt' name='environment' image_url='%ckan_url%/base/images/group_icons/environment.png' groups:'[{\"capacity\":\"public\",\"name\":\"topics\"}]'"
@@ -38,3 +41,7 @@ docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action gro
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Mobilität' name='mobility' image_url='%ckan_url%/base/images/group_icons/mobility.svg' groups:'[{\"capacity\":\"public\",\"name\":\"topics\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Landwirtschaft' name='agriculture' image_url='%ckan_url%/base/images/group_icons/agriculture.svg' groups:'[{\"capacity\":\"public\",\"name\":\"topics\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Gewerbe / Handwerk' name='craft' image_url='%ckan_url%/base/images/group_icons/craft.svg' groups:'[{\"capacity\":\"public\",\"name\":\"topics\"}]'"
+
+
+REM Der Setup ist beendet.
+pause

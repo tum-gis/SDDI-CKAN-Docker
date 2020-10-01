@@ -35,7 +35,9 @@ Im Zentrum der SDDI steht der Katalogdienst, der die verfügbaren Ressourcen reg
 Die Katalogplattform basiert auf der Open Source Software [CKAN](https://ckan.org) und ist mit zahlreichen Erweiterungen ausgestattet, um den Anforderungen der SDDI gerecht zu werden. CKAN verfügt über moderne Indizierungs- und Suchfunktionen und kann nach eigenen Zwecken sehr leicht modifiziert werden.
 ![Startseite der Katalogplattform](images/catalog.png?raw=true "Startseite der Katalogplattform")
 
+
 ## Installation
+
 Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installiert werden kann.
 
 1. Installieren Sie [Docker](https://docs.docker.com/get-docker/) auf Ihrem Betriebssystem.
@@ -45,8 +47,12 @@ cd INSTALL_DIRECTORY
 git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 ```
 3. Öffenen Sie die Datei */SDDI-CKAN-Docker source files/contrib/docker/.env.template* mit einem Texteditor. Ändern Sie den Wert CKAN_SITE_URL auf die Adresse unter der der Katalog erreichbar sein soll, und setzen Sie ein neues Passwort für die Datenbank im Wert POSTGRES_PASSWORD. Speichern Sie die Datei und benennen Sie sie anschließend in *.env* um.
-4. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten dauern.
-5. Führen Sie die Datei *Setup Gruppen SDDI Themenplattform* aus. Wird dieser Schritt übersprungen, kann es aktuell noch im Katalog zu Fehlern kommen.
+4. Öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* mit einem Texteditor und geben Sie in Zeile 60 die URL an, unter der der Katalog erreichbar sein wird.
+4. Wenn Sie die Vorauswahl an CKAN-Extensions ändern möchten, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und entfernen in Zeile 106 die entsprechenden Einträge.
+5. Wenn Sie nicht mit der SDDI-Gruppenauswahl arbeiten möchten (Schritt 8), dann müssen Sie die Erweiterungen [grouphierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi), [scheming](https://github.com/tum-gis/ckanext-scheming-sddi) und [userautoaddgroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi) entfernen oder so modifizieren, dass sie mit Ihrer Gruppenauswahl übereinstimmen.
+6. Um den Email-Support zu aktivieren, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und tragen Sie ab zeile 207 die entrpechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
+7. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten dauern.
+8. Führen Sie die Datei *Setup Gruppen SDDI Themenplattform* aus. Wird dieser Schritt übersprungen, kann es aktuell noch im Katalog zu Fehlern kommen.
 
 
 ## Gruppen und Organisationen

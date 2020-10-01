@@ -10,3 +10,9 @@ docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action org
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Technologieanbieter' name='technologieanbieter'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Softwareanbieter' name='softwareanbieter' groups:'[{\"capacity\":\"public\",\"name\":\"technologieanbieter\"}]'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Hardwareentwickler' name='hardwareentwickler' groups:'[{\"capacity\":\"public\",\"name\":\"technologieanbieter\"}]'"
+
+
+
+
+REM Der Setup ist beendet.
+pause
