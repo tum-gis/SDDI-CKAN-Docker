@@ -64,6 +64,8 @@ services:
     build:
       context: ../../
       dockerfile: contrib/docker/solr/Dockerfile
+    ports:
+      - "8983:8983"
 
 
   redis:
