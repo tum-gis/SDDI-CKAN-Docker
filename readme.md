@@ -57,6 +57,7 @@ Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installi
 9. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
 10. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
 11. Öffnen Sie die Datei *Setup Systemadmin erstellen.bat* und tragen Sie hier den selben Benutzernamen ein wie in Schritt 7. Führen Sie die Datei anschließend aus.
+12. Es wird empfohlen auch die Datei *Setup Organisationen SDDI Themenplattform.bat* auszuführen. Diese erstellt SDDI-konforme Organisationen im Katalog.
 
 
 ### Gruppen und Organisationen
