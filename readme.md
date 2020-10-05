@@ -89,6 +89,17 @@ ef2187e5199f        docker_solr                 "docker-entrypoint.s…"   29 mi
 ```
 In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
 
+Über folgende Befehle können sämtliche Docker Container entfernt werden (Unter Windows in der PowerShell ausführen):
+```
+docker stop $(docker ps -a -q)
+docker container prune
+```
+
+Über folgenden Befehl können sämtliche Docker images entfernt werden (Unter Windows in der PowerShell ausführen):
+```
+docker volume rm $(docker volume ls)
+```
+
 Über folgenden Befehl können die Docker Volumes (Hier werden die Daten gespeichert) zurückgesetzt werden:
 ```
 docker volume ls //Listet die volumes auf
