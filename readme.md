@@ -106,7 +106,7 @@ docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Grupp
 
 
 ## Verwendete Erweiterungen
-Die Katalogplattform verwnedet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 106 die entprechenden Einträge entfernt werden.
+Die Katalogplattform verwendet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 106 die entprechenden Einträge entfernt werden.
 
 * [Stats](https://github.com/ckan/ckan/tree/master/ckanext/stats)
 * [TextView](https://github.com/ckan/ckan/tree/master/ckanext/textview)
