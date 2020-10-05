@@ -19,6 +19,7 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 * [SDDI und die Katalogplattform](#sddi-und-die-katalogplattform)
 * [Installation](#installation)
 * [Gruppen und Organisationen](#gruppen-und-organisationen)
+* [Verwendete Erweiterungen](#verwendete-erweiterungen)
 
 
 ## SDDI und die Katalogplattform
@@ -101,7 +102,27 @@ docker_ckan_storage: Enthält die gespeicherten Dateien innheralb der Datensätz
 docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Gruppen und Datensätzte)
 ```
 
-## Weitere Befehle ?
+
+## Verwendete Erweiterungen
+Die Katalogplattform verwnedet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 106 die entprechenden Einträge entfernt werden.
+
+* [Stats](https://github.com/ckan/ckan/tree/master/ckanext/stats
+* [TextView](https://github.com/ckan/ckan/tree/master/ckanext/textview)
+* [ImageView](https://github.com/ckan/ckan/tree/master/ckanext/imageview)
+* [ReclineView](https://github.com/ckan/ckan/tree/master/ckanext/reclineview)
+* [Scheming](https://github.com/tum-gis/ckanext-scheming-sddi)
+* [Hierarchy](https://github.com/ckan/ckanext-hierarchy)
+* [Spatial](https://github.com/tum-gis/ckanext-spatial-sddi)
+* [GeoView](https://github.com/ckan/ckanext-geoview.git)
+* [Repeating](https://github.com/tum-gis/ckanext-repeating-sddi)
+* [Composite](https://github.com/tum-gis/ckanext-composite-sddi)
+* [GroupHierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi)
+* [Relation](https://github.com/tum-gis/ckanext-relation-sddi)
+* [Disqus](https://github.com/ckan/ckanext-disqus)
+* [TemporalSearch](https://github.com/tum-gis/ckanext-temporalsearch-sddi)
+* [UserAutoAddGroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi)
+* [Restricted](https://github.com/tum-gis/ckanext-restricted-sddi)
+* [GDPR](https://github.com/datopian/ckanext-gdpr)
 
 
 ## ...
