@@ -43,7 +43,7 @@ Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installi
 ### Basis-Installation
 
 1. Installieren Sie [Docker](https://docs.docker.com/get-docker/) auf Ihrem Betriebssystem.
-2. Clonen Sie die SDDI-CKAN-Docker Installationsdateien in ein beliebiges Verzeichnis auf Ihrem Computer:
+2. Clonen Sie die SDDI-CKAN-Docker Installationsdateien in ein beliebiges Verzeichnis auf Ihrem Computer:\n
 `cd INSTALL_DIRECTORY` `git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git`
 3. Öffenen Sie die Datei */SDDI-CKAN-Docker source files/contrib/docker/.env.template* mit einem Texteditor. Ändern Sie den Wert CKAN_SITE_URL auf die Adresse unter der der Katalog erreichbar sein soll, und setzen Sie ein neues Passwort für die Datenbank im Wert POSTGRES_PASSWORD. Speichern Sie die Datei und benennen Sie sie anschließend in *.env* um.
 4. Öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* mit einem Texteditor und geben Sie in Zeile 60 die URL an, unter der der Katalog erreichbar sein wird.
