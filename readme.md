@@ -90,16 +90,25 @@ ef2187e5199f        docker_solr                 "docker-entrypoint.s…"   29 mi
 ```
 In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
 
+
+#### Docker Container
+
 Über folgende Befehle können sämtliche Docker Container entfernt werden (Unter Windows in der PowerShell ausführen):
 ```
 docker stop $(docker ps -a -q)
 docker container prune
 ```
 
+
+#### Docker Images
+
 Über folgenden Befehl können sämtliche Docker images entfernt werden (Unter Windows in der PowerShell ausführen):
 ```
 docker rmi -f $(docker images -a -q)
 ```
+
+
+#### Docker Volumes
 
 Über folgenden Befehl können die Docker Volumes (Hier werden die Daten gespeichert) zurückgesetzt werden:
 ```
@@ -107,7 +116,7 @@ docker volume ls //Listet die volumes auf
 docker volume prune //Entfernt alle volumes (und alle Daten!)
 docker volume rm [name] //Entfernt ein einzelnes volume
 ```
-Beispiel für CKAN volumes:
+#### Beispiel für CKAN volumes:
 ```
 docker volume ls
 docker_ckan_config: Enthält die Config Datei (production.ini)
@@ -115,6 +124,10 @@ docker_ckan_home: Enthält die CKAN-Sinatllation mitsamt den Erweiterungen
 docker_ckan_storage: Enthält die gespeicherten Dateien innheralb der Datensätze
 docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Gruppen und Datensätzte)
 ```
+
+
+#### Solr
+Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür muss in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeile 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
 
 
 ## Verwendete Erweiterungen
