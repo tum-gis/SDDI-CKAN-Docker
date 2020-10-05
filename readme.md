@@ -53,14 +53,16 @@ git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 4. Wenn Sie die Vorauswahl an CKAN-Extensions ändern möchten, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und entfernen in Zeile 106 die entsprechenden Einträge.
 5. Wenn Sie nicht mit der SDDI-Gruppenauswahl arbeiten möchten (Schritt 8), dann müssen Sie die Erweiterungen [grouphierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi), [scheming](https://github.com/tum-gis/ckanext-scheming-sddi) und [userautoaddgroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi) entfernen oder so modifizieren, dass sie mit Ihrer Gruppenauswahl übereinstimmen. In der Datei */SDDI-CKAN-Docker source files/Dockerfile* können dazu die entsprechenden Erweiterungen auf ein anderes Git Repository umgeleitet werden.
 6. Um den Email-Support zu aktivieren, öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und tragen Sie ab Zeile 207 die entrpechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
-7. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
-8. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
+7. Öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und tragen Sie in Zeile 114 einen Admin-Benutzernamen ein (Nur Kleinbuchstaben und -_). Merken Sie sich diesen Benutzernamen für Schritt 10.
+8. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
+9. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
+10. Öffnen Sie die Datei *Setup Systemadmin erstellen.bat und tragen Sie hier den selben Benutzernamen ein wie in Schritt 7. Führen Sie die Datei anschließend aus.*
 
 
 ### Gruppen und Organisationen
 
 #### Gruppen
-Im Ramen der Themenplattform Smarte Städte und Regionen sind 8 Hauptkategorien, und 16 Nebenkategorien entstanden, die dabei helfen Datensätze übersichtlich zu ordnen. Diese Gruppen können mittels eines Scriptes installiert werden. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dieser Schritt sollte während der Installation bereits erfolgt sein.
+Im Ramen der Themenplattform Smarte Städte und Regionen sind 8 Hauptkategorien, und 16 Nebenkategorien entstanden, die dabei helfen Datensätze übersichtlich zu ordnen. Diese Gruppen können mittels eines Scriptes installiert werden. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dieser Schritt sollte während der Installation bereits erfolgt sein.
 
 Um eigene Gruppen zu erstellen, kann die Datei *Setup Gruppen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
