@@ -74,7 +74,7 @@ Um eigene Gruppen zu erstellen, kann die Datei *Setup Organisationen Template.ba
 
 ### Troubleshooting
 
-Nach der Installation empfiehlt es sich die Liste der laufenden Docker COntainer anzuzeigen. Dies geschieht über den Befehle
+Nach der Installation empfiehlt es sich die Liste der laufenden Docker COntainer anzuzeigen. Dies geschieht über den Befehl
 ```
 docker ps
 ```
