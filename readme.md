@@ -20,6 +20,8 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 * [Installation](#installation)
 * [Gruppen und Organisationen](#gruppen-und-organisationen)
 * [Verwendete Erweiterungen](#verwendete-erweiterungen)
+* [CKAN Dokumentation und Hilfe](ckan-dokumentation-und-hilfe)
+* [Lizenz](lizenz)
 
 
 ## SDDI und die Katalogplattform
@@ -123,3 +125,14 @@ Die Katalogplattform verwnedet verschiedene Erweiterungen um die für die SDDI b
 * [UserAutoAddGroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi)
 * [Restricted](https://github.com/tum-gis/ckanext-restricted-sddi)
 * [GDPR](https://github.com/datopian/ckanext-gdpr)
+
+
+## CKAN Dokumentation und Hilfe
+
+Die offizielle CKAN-Dokumentation finden Sie unter: [https://docs.ckan.org/en/2.9](https://docs.ckan.org/en/2.9).
+Informationen zur Benutzung der CKAN-API finden Sie unter: [https://docs.ckan.org/en/2.9/api/index.html](https://docs.ckan.org/en/2.9/api/index.html)
+
+
+## Lizenz
+
+The content of this repository is released under the terms of the [Apache-2.0 License](https://github.com/tum-gis/3dcitydb-docker-postgis/blob/master/LICENSE). The software components used in this project may be subject to different licensing conditions. Please refer to the website of the individual projects for further information.
