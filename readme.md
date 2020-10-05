@@ -60,6 +60,11 @@ Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installi
 12. Es wird empfohlen auch die Datei *Setup Organisationen SDDI Themenplattform.bat* auszuführen. Diese erstellt SDDI-konforme Organisationen im Katalog.
 
 
+### Docker-IP
+
+Je nach dem welche Docker-Version installiert ist, kann die Standard-Adresse von CKAN variieren. Normalerweise ist der Katalog immer unter `http://localhost:5000` erreichbar. Ist dies nicht der Fall (und der Befehl `docker ps` zeigt den Conatiner "ckan" als laufend an), kann eshlfen den Befehl `docker-machine env` auszuführen. Dies liefert Ihnen (wenn "docker-machine" installiert ist) eine IP-Adresse, die statt "localhost" verwenden können.
+
+
 ### Gruppen und Organisationen
 
 #### Gruppen
@@ -99,6 +104,9 @@ docker stop $(docker ps -a -q)
 docker container prune
 ```
 
+Mit dem Befehl `docker exec -it -u 0 ckan bash` kann der laufende Container "ckan" geöffnet werden. Sie befinden sich nun direkt im Installationsverzeichnis.
+
+Mit den Befehlen `. /usr/lib/ckan/default/bin/activate` und `cd /usr/lib/ckan/venv/src` können Sie in den Source-Ordner von CKAN wechseln und die vituelle Umgebung aktivieren. Dies ist nützlich um Befehle wie z.B. ` paster [...]` oder `ckan [...]` auszuführen (siehe hierzu die [Dokumentation](https://docs.ckan.org/en/2.9/maintaining/cli.html)).
 
 #### Docker Images
 
