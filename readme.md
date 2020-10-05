@@ -56,7 +56,7 @@ git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git
 7. Öffnen Sie die Datei */SDDI-CKAN-Docker source files/production.ini* und tragen Sie in Zeile 114 einen Admin-Benutzernamen ein (Nur Kleinbuchstaben und -_). Merken Sie sich diesen Benutzernamen für Schritt 10.
 8. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
 9. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
-10. Öffnen Sie die Datei *Setup Systemadmin erstellen.bat und tragen Sie hier den selben Benutzernamen ein wie in Schritt 7. Führen Sie die Datei anschließend aus.*
+10. Öffnen Sie die Datei *Setup Systemadmin erstellen.bat* und tragen Sie hier den selben Benutzernamen ein wie in Schritt 7. Führen Sie die Datei anschließend aus.
 
 
 ### Gruppen und Organisationen
