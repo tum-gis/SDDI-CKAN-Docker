@@ -20,8 +20,8 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 * [Installation](#installation)
 * [Gruppen und Organisationen](#gruppen-und-organisationen)
 * [Verwendete Erweiterungen](#verwendete-erweiterungen)
-* [CKAN Dokumentation und Hilfe](ckan-dokumentation-und-hilfe)
-* [Lizenz](lizenz)
+* [CKAN Dokumentation und Hilfe](#ckan-dokumentation-und-hilfe)
+* [Lizenz](#lizenz)
 
 
 ## SDDI und die Katalogplattform
