@@ -97,7 +97,7 @@ docker container prune
 
 Über folgenden Befehl können sämtliche Docker images entfernt werden (Unter Windows in der PowerShell ausführen):
 ```
-docker volume rm $(docker volume ls)
+docker rmi -f $(docker images -a -q)
 ```
 
 Über folgenden Befehl können die Docker Volumes (Hier werden die Daten gespeichert) zurückgesetzt werden:
