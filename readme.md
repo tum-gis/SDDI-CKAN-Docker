@@ -96,7 +96,7 @@ f0558213d9f6        docker_ckan                 "/ckan-entrypoint.sh…"   25 mi
 8a4fa20d7b35        docker_db                   "docker-entrypoint.s…"   29 minutes ago      Up 25 minutes       5432/tcp                 db
 ef2187e5199f        docker_solr                 "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       8983/tcp                 solr
 ```
-In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
+In diesem Fall hilft es eventuell die Installation erneut durchzuführen. Hilft dies weiterhin nichts, kann es helfen Docker neu zu installieren.
 
 
 #### Log Datei
