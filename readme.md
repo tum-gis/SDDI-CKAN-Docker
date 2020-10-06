@@ -19,6 +19,7 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 * [SDDI und die Katalogplattform](#sddi-und-die-katalogplattform)
 * [Installation](#installation)
 * [Gruppen und Organisationen](#gruppen-und-organisationen)
+* [Modifizierung und Handhabung des Katalogs](#modifizierung-und-handhabung-des-katalogs)
 * [Verwendete Erweiterungen](#verwendete-erweiterungen)
 * [CKAN Dokumentation und Hilfe](#ckan-dokumentation-und-hilfe)
 * [Lizenz](#lizenz)
@@ -154,6 +155,11 @@ docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Grupp
 #### Solr
 Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür muss in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeile 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
 
+
+## Modifizierung und Handhabung des Katalogs
+Nach der Installation ist die Katalogplattform einsatzbereit. Nachfolgend ist eine unsortierte Liste an möglichen Dingen, die Sie verändern können. Diese Liste ist nicht vollständig, sondern enthält nur einige relevante Optionen.
+* Ändern des Logos, des Favicons, oder der Beschreibung auf der Startseite:  
+Hier gibt es 
 
 ## Verwendete Erweiterungen
 Die Katalogplattform verwendet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 106 die entprechenden Einträge entfernt werden.
