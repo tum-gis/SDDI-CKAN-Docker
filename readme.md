@@ -110,7 +110,12 @@ Mit den Befehlen `. /usr/lib/ckan/default/bin/activate` und `cd /usr/lib/ckan/ve
 
 #### Docker Images
 
-Über folgenden Befehl können sämtliche Docker images entfernt werden (Unter Windows in der PowerShell ausführen):
+Über folgenden Befehl können sämtliche Docker Images angezeigt werden:
+```
+docker images
+```
+
+Über folgenden Befehl können sämtliche Docker Images entfernt werden (Unter Windows in der PowerShell ausführen):
 ```
 docker rmi -f $(docker images -a -q)
 ```
