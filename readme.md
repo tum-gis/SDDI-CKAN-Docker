@@ -106,6 +106,10 @@ In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
 
 #### Docker Container
 
+Der folgende Befehl listet alle laufenden Docker COntainer auf: `docker ps`  
+Mittels `docker stop [container_name] kann ein einzelner Container gestoppt werden.
+Mittels `docker container rm [container_name] kann ein einzelner Container entfernt werden.  
+
 Über folgende Befehle können sämtliche Docker Container entfernt werden (Unter Windows in der PowerShell ausführen):
 ```
 docker stop $(docker ps -a -q)
