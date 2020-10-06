@@ -159,8 +159,10 @@ Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das 
 ## Modifizierung und Handhabung des Katalogs
 Nach der Installation ist die Katalogplattform einsatzbereit. Nachfolgend ist eine unsortierte Liste an möglichen Dingen, die Sie verändern können. Diese Liste ist nicht vollständig, sondern enthält nur einige als relevant erachtetete Optionen.
 * Ändern des Logos, des Favicons, oder der Beschreibung auf der Startseite:  
-Hier gibt es drei Möglichkeiten, alle basieren darauf, dass Sie Änderungen in der Datei *production.ini* vornehmen. Für das Ändern des Favicons ist z.B. der Wert `ckan.favicon` relevant. Sie können diese Änderungen entweder direkt in den Installationsdateien vornehmen, oder im bereits laufenden Katalog. Hierfür sind die entsprechenden Befehle: 1. Den Container öffnen `docker exec -it -u 0 ckan bash`, 2. Die Datei öffen (z.B. mit [VIM](https://www.vim.org/)`vim /etc/ckan/production.ini`, 3. Den Container neu starten `docker restart ckan`.  
-Wenn Ihnen die Bedienung von VIM nicht zusagt, können Sie mit dem Befehl `docker cp /ckan:/etc/ckan/production.ini C:/users/benutzername/Desktop/production.ini` die Datei auf den Desktop kopieren und dort bearbeiten. Anschleißend führen Sie `docker cp C:/users/benutzername/Desktop/production.ini /ckan:/etc/ckan/production.ini` aus und starten den Container neu mit `docker restart ckan`.
+Hier gibt es drei Möglichkeiten, alle basieren darauf, dass Sie Änderungen in der Datei *production.ini* vornehmen. Für das Ändern des Favicons ist z.B. der Wert `ckan.favicon` relevant. Sie können diese Änderungen entweder direkt in den Installationsdateien vornehmen, oder im bereits laufenden Katalog. Hierfür sind die entsprechenden Befehle: 1. Den Container öffnen `docker exec -it -u 0 ckan bash`, 2. Die Datei öffen (z.B. mit [VIM](https://www.vim.org/)  
+`vim /etc/ckan/production.ini`, 3. Den Container neu starten `docker restart ckan`.  
+Wenn Ihnen die Bedienung von VIM nicht zusagt, können Sie mit dem Befehl `docker cp /ckan:/etc/ckan/production.ini C:/users/benutzername/Desktop/production.ini` die Datei auf den Desktop kopieren und dort bearbeiten. Anschleißend führen Sie  
+`docker cp C:/users/benutzername/Desktop/production.ini /ckan:/etc/ckan/production.ini` aus und starten den Container neu mit `docker restart ckan`.
 * Ändern der Auswahl and Gruppen/Organisationen, die auf der Startseite auftauchen:  
 Hierzu müssen analog zum vorherigen Schritt ebenfalls Werte in der Datei *production.ini* geändert werden. Die Entsprechenden Werte lauten `ckan.featured_groups` und `ckan.featured_orgs`
 * Hinzufügen von neuen Icons/Bildern:  
@@ -173,7 +175,8 @@ In CKAN werden sämtliche Unterseiten des Katalogs über [Jinja2-Templates](http
 Die Website `http://localhost:5000/users/` liefert Ihnen (wenn Sie als Systemadministrator eingeloggt sind) sämtliche Benutzer auf.
 * Benutzer einer Organisation hinzufügen:  
 Um Benutzer einer Organisation hinzuzufügen, klicken Sie auf die entsprechende Organisation, anschließend auf "Bearbeiten" und dann auf "Mitglieder".
-* Nachdem Sie Änderungen vorgenommen haben am laufenden Container, empfielt es sich den Befehl `docker commit ckan [COMMIT_NAME]` auszuführen. Dies erstellt einen Snapshot vom Container. Sie können später diesen Snapshot wieder starten mit dem Befehl `docker run -d -p 5000:5000 --link db:db --link solr:solr ckan/ckan`
+* Nachdem Sie Änderungen vorgenommen haben am laufenden Container, empfielt es sich den Befehl  
+`docker commit ckan [COMMIT_NAME]` auszuführen. Dies erstellt einen Snapshot vom Container. Sie können später diesen Snapshot wieder starten mit dem Befehl `docker run -d -p 5000:5000 --link db:db --link solr:solr ckan/ckan`
 
 ## Verwendete Erweiterungen
 Die Katalogplattform verwendet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 106 die entprechenden Einträge entfernt werden.
