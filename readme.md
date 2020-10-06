@@ -157,14 +157,16 @@ Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das 
 
 
 ## Modifizierung und Handhabung des Katalogs
-Nach der Installation ist die Katalogplattform einsatzbereit. Nachfolgend ist eine unsortierte Liste an möglichen Dingen, die Sie verändern können. Diese Liste ist nicht vollständig, sondern enthält nur einige relevante Optionen.
+Nach der Installation ist die Katalogplattform einsatzbereit. Nachfolgend ist eine unsortierte Liste an möglichen Dingen, die Sie verändern können. Diese Liste ist nicht vollständig, sondern enthält nur einige als relevant erachtetete Optionen.
 * Ändern des Logos, des Favicons, oder der Beschreibung auf der Startseite:  
 Hier gibt es drei Möglichkeiten, alle basieren darauf, dass Sie Änderungen in der Datei *production.ini* vornehmen. Für das Ändern des Favicons ist z.B. der Wert `ckan.favicon` relevant. Sie können diese Änderungen entweder direkt in den Installationsdateien vornehmen, oder im bereits laufenden Katalog. Hierfür sind die entsprechenden Befehle: 1. Den Container öffnen `docker exec -it -u 0 ckan bash`, 2. Die Datei öffen (z.B. mit [VIM](https://www.vim.org/)`vim /etc/ckan/production.ini`, 3. Den Container neu starten `docker restart ckan`.  
 Wenn Ihnen die Bedienung von VIM nicht zusagt, können Sie mit dem Befehl `docker cp /ckan:/etc/ckan/production.ini C:/users/benutzername/Desktop/production.ini` die Datei auf den Desktop kopieren und dort bearbeiten. Anschleißend führen Sie `docker cp C:/users/benutzername/Desktop/production.ini /ckan:/etc/ckan/production.ini` aus und starten den Container neu mit `docker restart ckan`.
 * Ändern der Auswahl and Gruppen/Organisationen, die auf der Startseite auftauchen:  
 Hierzu müssen analog zum vorherigen Schritt ebenfalls Werte in der Datei *production.ini* geändert werden. Die Entsprechenden Werte lauten `ckan.featured_groups` und `ckan.featured_orgs`
 * Hinzufügen von neuen Icons/Bildern:  
-Sie können Bilder entweder mit neuen Datensätzen hochladen, oder diese direkt in CKAN verankern. Letzteres empfiehlt sich z.B. für Gruppen-Icons. Vor der Installation können Sie Bilddateie im Ordner *SDDI-CKAN-Docker source files/ckan/public/base/images* ablegen. Wenn Sie Bilddateien nachträglich hinzufügen wollen, können Sie dies mittels dem Befehl `docker cp PFAD_ZUM_BILD/bild.jpg ckan:/usr/lib/ckan/venv/src/ckan/ckan/public/base/images/bild.jpg` tun.
+Sie können Bilder entweder mit neuen Datensätzen hochladen, oder diese direkt in CKAN verankern. Letzteres empfiehlt sich z.B. für Gruppen-Icons. Vor der Installation können Sie Bilddatei im Ordner  
+*SDDI-CKAN-Docker source files/ckan/public/base/images* ablegen. Wenn Sie Bilddateien nachträglich hinzufügen wollen, können Sie dies mittels dem Befehl  
+`docker cp PFAD_ZUM_BILD/bild.jpg ckan:/usr/lib/ckan/venv/src/ckan/ckan/public/base/images/bild.jpg` tun.
 * Ändern von Beschreibungen & Texten:  
 In CKAN werden sämtliche Unterseiten des Katalogs über [Jinja2-Templates](https://jinja.palletsprojects.com/en/2.11.x/) erstellt. Wenn Sie also einen bestimmten Text ändenr möchten, müssen Sie hierzu das entsprechende Template ändern. Das Template für die Seite "Über uns" ist z.B. zu finden unter: *SDDI-CKAN-Docker source files/ckan/templates/home/snippets/about_text.html*. Analog zu den vorherigen Punkten können Sie das Template auch amm laufenden Container ändern. Hierzu wäre der Pfad innerhalb des Containers */usr/lib/ckan/venv/src/ckan/ckan/templates/home/snippets/about_text.html* Sie können diese Datei entweder direkt mit VIM bearbeiten, oder auf den Desktop kopieren und dort bearbeiten. Anschließend muss der CKAN Container neu gestartet werden.
 * Übersicht über die registrierten Benutzer:  
