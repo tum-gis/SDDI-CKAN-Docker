@@ -11,7 +11,6 @@ exit REM Diese Zeile muss entfernt werden. Sie dient als Sicherung, damit die ob
 
 
 
-
 REM Hauptkategorien
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Hauptkategorien' name='main-categories'"
 docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action group_create -c etc/ckan/production.ini title='Datensatz und Dokumente' name='dataset' image_url='%ckan_url%/base/images/group_icons/dataset.jpg' groups:'[{\"capacity\":\"public\",\"name\":\"main-categories\"}]'"
