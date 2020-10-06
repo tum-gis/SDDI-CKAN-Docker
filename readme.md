@@ -62,7 +62,7 @@ Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installi
 
 ### Docker-IP
 
-Je nach dem welche Docker-Version installiert ist, kann die Standard-Adresse von CKAN variieren. Normalerweise ist der Katalog immer unter `http://localhost:5000` erreichbar. Ist dies nicht der Fall (und der Befehl `docker ps` zeigt den Conatiner "ckan" als laufend an), kann eshlfen den Befehl `docker-machine env` auszuführen. Dies liefert Ihnen (wenn "docker-machine" installiert ist) eine IP-Adresse, die statt "localhost" verwenden können.
+Je nach dem welche Docker-Version installiert ist, kann die Standard-Adresse von CKAN variieren. Normalerweise ist der Katalog immer unter `http://localhost:5000` erreichbar. Ist dies nicht der Fall (und der Befehl `docker ps` zeigt den Conatiner "ckan" als laufend an), kann es helfen den Befehl `docker-machine env` auszuführen. Dies liefert Ihnen (wenn "docker-machine" installiert ist) eine IP-Adresse, die statt "localhost" verwenden können.
 
 
 ### Gruppen und Organisationen
