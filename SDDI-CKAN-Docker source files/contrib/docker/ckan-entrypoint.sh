@@ -25,7 +25,7 @@ set_environment () {
   export CKAN_SOLR_URL=${CKAN_SOLR_URL}
   # export CKAN_REDIS_URL=${CKAN_REDIS_URL}
   export CKAN_STORAGE_PATH=/var/lib/ckan
-  export CKAN_DATAPUSHER_URL=${CKAN_DATAPUSHER_URL}
+  # export CKAN_DATAPUSHER_URL=${CKAN_DATAPUSHER_URL}
   export CKAN_DATASTORE_WRITE_URL=${CKAN_DATASTORE_WRITE_URL}
   export CKAN_DATASTORE_READ_URL=${CKAN_DATASTORE_READ_URL}
   export CKAN_SMTP_SERVER=${CKAN_SMTP_SERVER}
@@ -58,9 +58,9 @@ fi
 #     abort "ERROR: no CKAN_REDIS_URL specified in docker-compose.yml"
 # fi
 
-if [ -z "$CKAN_DATAPUSHER_URL" ]; then
-    abort "ERROR: no CKAN_DATAPUSHER_URL specified in docker-compose.yml"
-fi
+# if [ -z "$CKAN_DATAPUSHER_URL" ]; then
+#     abort "ERROR: no CKAN_DATAPUSHER_URL specified in docker-compose.yml"
+# fi
 
 set_environment
 ckan-paster --plugin=ckan db init -c "${CKAN_CONFIG}/production.ini"

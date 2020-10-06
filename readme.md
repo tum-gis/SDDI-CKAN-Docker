@@ -119,6 +119,7 @@ Mit dem Befehl `docker exec -it -u 0 ckan bash` kann der laufende Container "cka
 
 Mit den Befehlen `. /usr/lib/ckan/default/bin/activate` und `cd /usr/lib/ckan/venv/src` können Sie in den Source-Ordner von CKAN wechseln und die vituelle Umgebung aktivieren. Dies ist nützlich um Befehle wie z.B. ` paster [...]` oder `ckan [...]` auszuführen (siehe hierzu die [Dokumentation](https://docs.ckan.org/en/2.9/maintaining/cli.html)).
 
+
 #### Docker Images
 
 Über folgenden Befehl können sämtliche Docker Images angezeigt werden:
@@ -140,7 +141,10 @@ docker volume ls //Listet die volumes auf
 docker volume prune //Entfernt alle volumes (und alle Daten!)
 docker volume rm [name] //Entfernt ein einzelnes volume
 ```
+
+
 #### Beispiel für CKAN volumes:
+
 ```
 docker volume ls
 docker_ckan_config: Enthält die Config Datei (production.ini)
@@ -151,10 +155,12 @@ docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Grupp
 
 
 #### Solr
+
 Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür müssen in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeilen 67 und 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
 
 
 ## Modifizierung und Handhabung des Katalogs
+
 Nach der Installation ist die Katalogplattform einsatzbereit. Nachfolgend ist eine unsortierte Liste an möglichen Dingen, die Sie verändern können. Diese Liste ist nicht vollständig, sondern enthält nur einige als relevant erachtetete Optionen.
 * Ändern des Logos, des Favicons, oder der Beschreibung auf der Startseite:  
 Hier gibt es drei Möglichkeiten, alle basieren darauf, dass Sie Änderungen in der Datei *production.ini* vornehmen. Für das Ändern des Favicons ist z.B. der Wert `ckan.favicon` relevant. Sie können diese Änderungen entweder direkt in den Installationsdateien vornehmen, oder im bereits laufenden Katalog. Hierfür sind die entsprechenden Befehle: 1. Den Container öffnen `docker exec -it -u 0 ckan bash`, 2. Die Datei öffen (z.B. mit [VIM](https://www.vim.org/))  
@@ -182,7 +188,9 @@ CKAN verfügt über die beiden Erweiterungen Datapusher und redis. Datapusher ka
 `docker commit ckan [COMMIT_NAME]` auszuführen. Dies erstellt einen Snapshot vom Container. Sie können später diesen Snapshot wieder starten mit dem Befehl  
 `docker run -d -p 5000:5000 --link db:db --link solr:solr ckan/ckan`
 
+
 ## Verwendete Erweiterungen
+
 Die Katalogplattform verwendet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 106 die entprechenden Einträge entfernt werden.
 
 * [Stats](https://github.com/ckan/ckan/tree/master/ckanext/stats)
