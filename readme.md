@@ -59,6 +59,10 @@ Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installi
 11. Öffnen Sie die Datei *Setup Systemadmin erstellen.bat* und tragen Sie hier den selben Benutzernamen ein wie in Schritt 7. Führen Sie die Datei anschließend aus.
 12. Es wird empfohlen auch die Datei *Setup Organisationen SDDI Themenplattform.bat* auszuführen. Diese erstellt SDDI-konforme Organisationen im Katalog.
 
+### Initialisierung der Datenbank
+
+Manchmal braucht der Datenbankcontainer etwas länger um zu starten. In diesem Fall können während dem Setup der Datenbank-Tabellen Fehler auftreten (während der Installation bemerkbar als sehr viele Zeilen in der Form `psql:/usr/share/postgresql/11/contrib/postgis-2.5/postgis.sql:7785: ERROR:  current transaction is aborted, commands ignored until end of transaction block`. In diesem Fall kann es helfen das Setup Script erneut zu starten.
+
 
 ### Docker-IP
 
@@ -94,6 +98,10 @@ ef2187e5199f        docker_solr                 "docker-entrypoint.s…"   29 mi
 058ea7466ff5        redis:latest                "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       6379/tcp                 redis
 ```
 In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
+
+
+#### Log Datei
+Über den Befehl `docker logs ckan` kann die CKAN Log-Datei eingesehen werden. Sie enthält unter anderem auch Fehlermeldungen, sofern welche auftreten.
 
 
 #### Docker Container

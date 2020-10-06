@@ -166,7 +166,7 @@ schema. In this case the version should be set to the next CKAN version number.
     <dynamicField name="extras_*" type="text" indexed="true" stored="true" multiValued="false"/>
     <dynamicField name="res_extras_*" type="text" indexed="true" stored="true" multiValued="true"/>
     <dynamicField name="vocab_*" type="string" indexed="true" stored="true" multiValued="true"/>
-    <dynamicField name="*" type="string" indexed="true"  stored="false"/>
+    <dynamicField name="*" type="text" indexed="true"  stored="false"/>
     <field name="bbox_area" type="float" indexed="true" stored="true" />
 	
     <!--field name="maxx" type="float" indexed="true" stored="true" />
