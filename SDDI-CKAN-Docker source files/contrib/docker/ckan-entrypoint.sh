@@ -7,9 +7,9 @@ set -e
 # URL for solr (required unless linked to a container called 'solr')
 : ${CKAN_SOLR_URL:=}
 # URL for redis (required unless linked to a container called 'redis')
-: ${CKAN_REDIS_URL:=}
+# : ${CKAN_REDIS_URL:=}
 # URL for datapusher (required unless linked to a container called 'datapusher')
-: ${CKAN_DATAPUSHER_URL:=}
+# : ${CKAN_DATAPUSHER_URL:=}
 
 CONFIG="${CKAN_CONFIG}/production.ini"
 
@@ -23,7 +23,7 @@ set_environment () {
   export CKAN_SITE_URL=${CKAN_SITE_URL}
   export CKAN_SQLALCHEMY_URL=${CKAN_SQLALCHEMY_URL}
   export CKAN_SOLR_URL=${CKAN_SOLR_URL}
-  export CKAN_REDIS_URL=${CKAN_REDIS_URL}
+  # export CKAN_REDIS_URL=${CKAN_REDIS_URL}
   export CKAN_STORAGE_PATH=/var/lib/ckan
   export CKAN_DATAPUSHER_URL=${CKAN_DATAPUSHER_URL}
   export CKAN_DATASTORE_WRITE_URL=${CKAN_DATASTORE_WRITE_URL}
@@ -54,9 +54,9 @@ if [ -z "$CKAN_SOLR_URL" ]; then
     abort "ERROR: no CKAN_SOLR_URL specified in docker-compose.yml"
 fi
 
-if [ -z "$CKAN_REDIS_URL" ]; then
-    abort "ERROR: no CKAN_REDIS_URL specified in docker-compose.yml"
-fi
+# if [ -z "$CKAN_REDIS_URL" ]; then
+#     abort "ERROR: no CKAN_REDIS_URL specified in docker-compose.yml"
+# fi
 
 if [ -z "$CKAN_DATAPUSHER_URL" ]; then
     abort "ERROR: no CKAN_DATAPUSHER_URL specified in docker-compose.yml"

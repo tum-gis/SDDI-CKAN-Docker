@@ -85,7 +85,7 @@ Um eigene Gruppen zu erstellen, kann die Datei *Setup Organisationen Template.ba
 
 ### Troubleshooting
 
-Nach der Installation empfiehlt es sich die Liste der laufenden Docker COntainer anzuzeigen. Dies geschieht über den Befehl
+Nach der Installation empfiehlt es sich die Liste der laufenden Docker Container anzuzeigen. Dies geschieht über den Befehl
 ```
 docker ps
 ```
@@ -93,10 +93,8 @@ Sind hier nicht Folgende Container aufgelistet ist etwas schiefgegangen:
 ```
 CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
 f0558213d9f6        docker_ckan                 "/ckan-entrypoint.sh…"   25 minutes ago      Up 25 minutes       0.0.0.0:5000->5000/tcp   ckan
-76614dd75524        clementmouchet/datapusher   "python datapusher/m…"   29 minutes ago      Up 29 minutes       0.0.0.0:8800->8800/tcp   datapusher
 8a4fa20d7b35        docker_db                   "docker-entrypoint.s…"   29 minutes ago      Up 25 minutes       5432/tcp                 db
 ef2187e5199f        docker_solr                 "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       8983/tcp                 solr
-058ea7466ff5        redis:latest                "docker-entrypoint.s…"   29 minutes ago      Up 29 minutes       6379/tcp                 redis
 ```
 In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
 
@@ -107,7 +105,7 @@ In diesem Fall hilft es eventuell die Installation erneut durchzuführen.
 
 #### Docker Container
 
-Der folgende Befehl listet alle laufenden Docker COntainer auf: `docker ps`  
+Der folgende Befehl listet alle laufenden Docker Container auf: `docker ps`  
 Mittels `docker stop [container_name]` kann ein einzelner Container gestoppt werden.  
 Mittels `docker container rm [container_name]` kann ein einzelner Container entfernt werden.  
 
@@ -153,7 +151,7 @@ docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Grupp
 
 
 #### Solr
-Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür muss in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeile 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
+Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür müssen in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeilen 67 und 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
 
 
 ## Modifizierung und Handhabung des Katalogs
@@ -176,6 +174,10 @@ In CKAN werden sämtliche Unterseiten des Katalogs über [Jinja2-Templates](http
 Die Website `http://localhost:5000/users/` liefert Ihnen (wenn Sie als Systemadministrator eingeloggt sind) sämtliche Benutzer auf.
 * Benutzer einer Organisation hinzufügen:  
 Um Benutzer einer Organisation hinzuzufügen, klicken Sie auf die entsprechende Organisation, anschließend auf "Bearbeiten" und dann auf "Mitglieder".
+* Eine Erweiterung hinzufügen:  
+Möchten Sie eine Erweiterung zu CKAN hinzufügen, können Sie dies entweder in der Datei *SDDI-CKAN-Docker source files/Dockerfile* tun, oder im laufenden Container mit den Befehlen `docker exec -it -u 0 ckan bash` `cd /usr/lib/ckan/venv/src` `. /usr/lib/ckan/venv/bin/activate` `pip install -e "git+https//github.com/LINK_ZUR_ERWEITERUNG.git#egg=NAME_DER_ERWEITERUNG"`. Starten Sie den CKAN Container anschließend mit `docker restart ckan` neu.
+* Datapusher und redis:  
+CKAN verfügt über die beiden Erweiterungen Datapusher und redis. Datapusher kann verwendet werden, um Dateien in Datensätzen besser zu verwalten (siehe hierzu die [Dokumentation](https://docs.ckan.org/projects/datapusher/en/latest/)). Redis kann verwendet werden, um asynchrone Hintergrundaufgaben in CKAN zu verbessern. Um eine der beiden Erweiterungen oder beide zu installieren, sollte der *docker-compose* Setup erneut durchgeführt werden. Ändern Sie hierzu in der Datei *SDDI-CKAN-Docker source files/contrib/docker/ckan-entrypoint.sh* die Zeilen 10, 12, 26, und 57-59 und in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeilen 21, 30-31, 42-46 und 71-74. Stellen Sie beim Speichern sicher, dass die Datei *ckan-entrypoint.sh* mit der Zeilenenden-Kodierung "LF" gespeichert wird, und nicht mit "CR LF".
 * Nachdem Sie Änderungen vorgenommen haben am laufenden Container, empfielt es sich den Befehl  
 `docker commit ckan [COMMIT_NAME]` auszuführen. Dies erstellt einen Snapshot vom Container. Sie können später diesen Snapshot wieder starten mit dem Befehl  
 `docker run -d -p 5000:5000 --link db:db --link solr:solr ckan/ckan`
