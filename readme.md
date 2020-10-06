@@ -181,7 +181,7 @@ Die Website `http://localhost:5000/users/` liefert Ihnen (wenn Sie als Systemadm
 * Benutzer einer Organisation hinzufügen:  
 Um Benutzer einer Organisation hinzuzufügen, klicken Sie auf die entsprechende Organisation, anschließend auf "Bearbeiten" und dann auf "Mitglieder".
 * Einen weiteren Systemadministrator hinzufügen:  
-Um einen weiteren Systemadministrator hinzuzufügen, führen Sie den Befehl `docker exec -it ckan /usr/local/bin/ckan-paster --plugin=ckan sysadmin -c /etc/ckan/production.ini add benutzername` aus. Der Benutzername darn nur aus Kleinbuchstaben und den Zeichen - und _ bestehen. Ist der Benutzername im Katalog bereits registriert, wird der entpsrechende Benutzer zum Systemadministrator befördert.
+Um einen weiteren Systemadministrator hinzuzufügen, führen Sie den Befehl `docker exec -it ckan /usr/local/bin/ckan-paster --plugin=ckan sysadmin -c /etc/ckan/production.ini add benutzername` aus. Der Benutzername darn nur aus Kleinbuchstaben und den Zeichen - und _ bestehen. Ist der Benutzername im Katalog bereits registriert, wird der entpsrechende Benutzer zum Systemadministrator befördert, ansonsten wird ein neuer Benutzer angelegt.
 * Eine Erweiterung hinzufügen:  
 Möchten Sie eine Erweiterung zu CKAN hinzufügen, können Sie dies entweder in der Datei *SDDI-CKAN-Docker source files/Dockerfile* tun, oder im laufenden Container mit den Befehlen `docker exec -it -u 0 ckan bash` `cd /usr/lib/ckan/venv/src` `. /usr/lib/ckan/venv/bin/activate` `pip install -e "git+https//github.com/LINK_ZUR_ERWEITERUNG.git#egg=NAME_DER_ERWEITERUNG"`. Starten Sie den CKAN Container anschließend mit `docker restart ckan` neu.
 * Datapusher und redis:  
