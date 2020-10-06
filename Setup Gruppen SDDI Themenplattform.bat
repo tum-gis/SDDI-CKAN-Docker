@@ -6,7 +6,7 @@ set ckan_url="http://localhost:5000"
 
 REM Haben Sie die ckan_url angepasst?
 pause
-REM exit REM Diese Zeile muss entfernt werden. Sie dient als Sicherung, damit die obige URL auch tatsächlich verändert worden ist.
+exit REM Diese Zeile muss entfernt werden. Sie dient als Sicherung, damit die obige URL auch tatsächlich verändert worden ist.
 
 
 
