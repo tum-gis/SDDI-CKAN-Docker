@@ -20,6 +20,7 @@ Dieses Repository enthält alle benötigten Dateien, um eine Instanz einer [CKAN
 * [Installation](#installation)
 * [Gruppen und Organisationen](#gruppen-und-organisationen)
 * [Modifizierung und Handhabung des Katalogs](#modifizierung-und-handhabung-des-katalogs)
+* [Tutorial-Videos](#tutorial-videos)
 * [Verwendete Erweiterungen](#verwendete-erweiterungen)
 * [CKAN Dokumentation und Hilfe](#ckan-dokumentation-und-hilfe)
 * [Lizenz](#lizenz)
@@ -189,6 +190,12 @@ CKAN verfügt über die beiden Erweiterungen Datapusher und redis. Datapusher ka
 * Nachdem Sie Änderungen vorgenommen haben am laufenden Container, empfielt es sich den Befehl  
 `docker commit ckan [COMMIT_NAME]` auszuführen. Dies erstellt einen Snapshot vom Container. Sie können später diesen Snapshot wieder starten mit dem Befehl  
 `docker run -d -p 5000:5000 --link db:db --link solr:solr ckan/ckan`
+
+
+## Tutorial-Videos
+Einen kleinen Einblick in die Bedienung von CKAN und der Katalogplattform liefern die folgenden beiden Videos:
+* Video zur Suche nach Datensätzen: https://bit.ly/2GtcYpu
+* Video zum Anlegen neuer Datensätze: https://bit.ly/2GH84EV
 
 
 ## Verwendete Erweiterungen
