@@ -7,16 +7,30 @@
   {{ form.input("email", id="field-email", label=_("Email"), type="email", placeholder=_("joe@example.com"), value=data.email, error=errors.email, classes=["control-medium"], is_required=True) }}
   {{ form.input("password1", id="field-password", label=_("Password"), type="password", placeholder="••••••••", value=data.password1, error=errors.password1, classes=["control-medium"], is_required=True) }}
   {{ form.input("password2", id="field-confirm-password", label=_("Confirm"), type="password", placeholder="••••••••", value=data.password2, error=errors.password1, classes=["control-medium"], is_required=True) }}
+  {{ form.checkbox('Datenschutzerklärung', id="field-disclaimer-check", label="Datenschutzerklärung", is_required=true) }}
+     <p style="margin-top:-30px;margin-left:20px;padding-bottom:30px">Ich stimme zu, dass meine persönlichen Daten in der Katalogplattform gespeichert werden. Eine weitergabe der Daten an dritte erfolgt nicht. Ich erkläre mich außerdem damit einverstanden, dass ich die Richtlinien von <a href="https://opendefinitions.org/licences">https://opendefinitions.org/licences</a> beim Erstellen und Bearbeiten von Katalogeinträgen beachte, und keine Ressourcen und Daten unter falscher Lizenz bereitstelle.</p>
+
 
   {% if g.recaptcha_publickey %}
     {% snippet "user/snippets/recaptcha.html", public_key=g.recaptcha_publickey %}
   {% endif %}
-
   {{ form.required_message() }}
 
   <div class="form-actions">
     {% block form_actions %}
-    <button class="btn btn-primary" type="submit" name="save">{{ _("Create Account") }}</button>
+    <button class="btn btn-primary" id="btn_submit-form" type="submit" name="save" disabled=true>{{ _("Create Account") }}</button>
     {% endblock %}
   </div>
 </form>
+
+<script>
+  var disclaimer_checkbox = document.getElementById("field-disclaimer-check")
+  disclaimer_checkbox.onclick = function(){
+    var submit_btn = document.getElementById("btn_submit-form")
+    if(disclaimer_checkbox.checked){
+      submit_btn.disabled = false;
+    } else{
+      submit_btn.disabled = true;
+    }
+  }
+</script>
