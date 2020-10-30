@@ -65,6 +65,7 @@ RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install geoalchemy2
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install git+https://github.com/eawag-rdm/lucparser
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install lxml
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install shapely
+RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install requests
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/ckan/ckanext-hierarchy.git#egg=ckanext-hierarchy
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/tum-gis/ckanext-grouphierarchy-sddi.git#egg=ckanext-grouphierarchy-sddi
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/tum-gis/ckanext-scheming-sddi.git#egg=ckanext-scheming-sddi
@@ -78,6 +79,7 @@ RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://githu
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/tum-gis/ckanext-userautoaddgroup-sddi.git#egg=ckanext-userautoaddgroup-sddi
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/tum-gis/ckanext-restricted-sddi.git#egg=ckanext-restricted-sddi
 RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/datopian/ckanext-gdpr.git#egg=ckanext-gdpr
+RUN . $CKAN_VENV/bin/activate && $CKAN_VENV/bin/pip install -e git+https://github.com/tum-gis/ckanext-importerexporter-sddi.git#egg=ckanext-importerexporter-sddi
 
 
 ADD production.ini $CKAN_CONFIG/production.ini

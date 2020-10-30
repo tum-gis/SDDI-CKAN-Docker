@@ -213,3 +213,4 @@ admin.add_url_rule(
     u'/reset_config', view_func=ResetConfigView.as_view(str(u'reset_config')))
 admin.add_url_rule(u'/config', view_func=ConfigView.as_view(str(u'config')))
 admin.add_url_rule(u'/trash', view_func=TrashView.as_view(str(u'trash')))
+admin.add_url_rule(u'/contentpackages', view_func=TrashView.as_view(str(u'contentpackages')))
