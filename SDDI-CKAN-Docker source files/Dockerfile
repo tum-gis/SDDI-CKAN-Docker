@@ -6,6 +6,7 @@ MAINTAINER Open Knowledge
 RUN apt-get -q -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get -q -y upgrade \
     && apt-get -q -y install \
+    	  curl \
         python-dev \
         python-pip \
         python-virtualenv \
@@ -39,9 +40,14 @@ RUN useradd -r -u 900 -m -c "ckan account" -d $CKAN_HOME -s /bin/false ckan
 
 # Setup virtual environment for CKAN
 RUN mkdir -p $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH && \
-    virtualenv $CKAN_VENV && \
+    virtualenv $CKAN_VENV
+
+RUN curl -o $CKAN_VENV/get-pip.py https://bootstrap.pypa.io/2.7/get-pip.py && \
+    . $CKAN_VENV/bin/activate && python $CKAN_VENV/get-pip.py 'pip==20.3.3' && \
     ln -s $CKAN_VENV/bin/pip /usr/local/bin/ckan-pip &&\
-    ln -s $CKAN_VENV/bin/paster /usr/local/bin/ckan-paster
+    ln -s $CKAN_VENV/bin/paster /usr/local/bin/ckan-paster 
+
+RUN rm -rf $CKAN_VENV/get-pip.py
 
 # Setup CKAN
 ADD . $CKAN_VENV/src/ckan/
