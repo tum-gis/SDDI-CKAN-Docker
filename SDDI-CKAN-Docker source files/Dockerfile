@@ -16,6 +16,9 @@ RUN apt-get -q -y update \
         libxslt-dev \
         libgeos-dev \
         libssl-dev \
+        libxslt-dev \
+        libgeos-dev \
+        libssl-dev \
         libffi-dev \
         postgresql-client \
         build-essential \
@@ -23,7 +26,7 @@ RUN apt-get -q -y update \
         vim \
         wget \
     && apt-get -q clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y dos2unix
 
 # Define environment variables
 ENV CKAN_HOME /usr/lib/ckan
@@ -42,7 +45,7 @@ RUN useradd -r -u 900 -m -c "ckan account" -d $CKAN_HOME -s /bin/false ckan
 RUN mkdir -p $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH && \
     virtualenv $CKAN_VENV
 
-RUN curl -o $CKAN_VENV/get-pip.py https://bootstrap.pypa.io/2.7/get-pip.py && \
+RUN curl -o $CKAN_VENV/get-pip.py https://bootstrap.pypa.io/pip/2.7/get-pip.py && \
     . $CKAN_VENV/bin/activate && python $CKAN_VENV/get-pip.py 'pip==20.3.3' && \
     ln -s $CKAN_VENV/bin/pip /usr/local/bin/ckan-pip &&\
     ln -s $CKAN_VENV/bin/paster /usr/local/bin/ckan-paster 
@@ -59,6 +62,7 @@ RUN ckan-pip install -U pip && \
     cp -v $CKAN_VENV/src/ckan/contrib/docker/ckan-entrypoint.sh /ckan-entrypoint.sh && \
     chmod +x /ckan-entrypoint.sh && \
     chown -R ckan:ckan $CKAN_HOME $CKAN_VENV $CKAN_CONFIG $CKAN_STORAGE_PATH
+RUN dos2unix /ckan-entrypoint.sh && apt-get --purge remove -y dos2unix && rm -rf /var/lib/apt/lists/*                                                                                                         
 
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 

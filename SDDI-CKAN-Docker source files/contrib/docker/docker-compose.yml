@@ -8,6 +8,7 @@ volumes:
   ckan_storage:
   pg_data:
 
+
 services:
   ckan:
     container_name: ckan
@@ -58,6 +59,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - pg_data:/var/lib/postgresql/data
+# In case you are using Windows 10 and Docker Desktop you may not be able to use named volume. So comment volume pg_data (lines 9 and 61) and instead uncomment line 63. This should do the job for now. It is a known bug for Windows docker. Please frequently check for a proper solution!
+      #- ./postgres_data1:/var/lib/postgresql/data
 
   solr:
     container_name: solr
