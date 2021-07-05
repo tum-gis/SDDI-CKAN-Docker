@@ -45,21 +45,52 @@ Die Katalogplattform basiert auf der Open Source Software [CKAN](https://ckan.or
 
 Dieses Kapitel beschreibt wie die Katalogplattform als Docker Container installiert werden kann.
 
-### Basis-Installation
+
+### Basis-Installation - Windows
 
 1. Installieren Sie [Docker](https://docs.docker.com/get-docker/) auf Ihrem Betriebssystem.
 2. Clonen Sie die SDDI-CKAN-Docker Installationsdateien in ein beliebiges Verzeichnis auf Ihrem Computer:  
 `cd INSTALL_DIRECTORY` `git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git`
-3. Öffenen Sie die Datei *SDDI-CKAN-Docker source files/contrib/docker/.env* mit einem Texteditor. Ändern Sie den Wert CKAN_SITE_URL auf die Adresse unter der der Katalog erreichbar sein soll, und setzen Sie ein neues Passwort für die Datenbank im Wert POSTGRES_PASSWORD.
-4. Öffnen Sie die Datei *SDDI-CKAN-Docker source files/production.ini* mit einem Texteditor und geben Sie in Zeile 60 die URL an, unter der der Katalog erreichbar sein wird.
-5. Wenn Sie die Vorauswahl an CKAN-Extensions ändern möchten, öffnen Sie die Datei *SDDI-CKAN-Docker source files/production.ini* und entfernen in Zeile 106 die entsprechenden Einträge.
-6. Wenn Sie nicht mit der SDDI-Gruppenauswahl arbeiten möchten (Schritt 10), sollten Sie die Erweiterungen [grouphierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi), [scheming](https://github.com/tum-gis/ckanext-scheming-sddi) und [userautoaddgroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi) entfernen oder so modifizieren, dass sie mit Ihrer Gruppenauswahl übereinstimmen. In der Datei *SDDI-CKAN-Docker source files/Dockerfile* können dazu die entsprechenden Erweiterungen auf ein anderes Git Repository umgeleitet werden.
-7. Wenn Sie den Email-Support zu aktivieren möchten, öffnen Sie die Datei *SDDI-CKAN-Docker source files/production.ini* und tragen Sie ab Zeile 220 die entsprechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
-8. Öffnen Sie die Datei *SDDI-CKAN-Docker source files/production.ini* und tragen Sie in Zeile 115 einen Admin-Benutzernamen ein (Nur Kleinbuchstaben und -_). Merken Sie sich diesen Benutzernamen für Schritt 11.
-9. Führen Sie die Datei *Setup CKAN Docker.bat* im Hauptverzeichnis aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
-10. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
+3. Öffenen Sie die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/.env* mit einem Texteditor. Ändern Sie den Wert CKAN_SITE_URL auf die Adresse unter der der Katalog erreichbar sein soll, und setzen Sie ein neues Passwort für die Datenbank im Wert POSTGRES_PASSWORD.
+4. Öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* mit einem Texteditor und geben Sie in Zeile 60 die URL an, unter der der Katalog erreichbar sein wird.
+5. Wenn Sie die Vorauswahl an CKAN-Extensions ändern möchten, öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* und entfernen in Zeile 109 die entsprechenden Einträge.
+6. Wenn Sie nicht mit der SDDI-Gruppenauswahl arbeiten möchten (Schritt 10), sollten Sie die Erweiterungen [grouphierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi), [scheming](https://github.com/tum-gis/ckanext-scheming-sddi) und [userautoaddgroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi) entfernen oder so modifizieren, dass sie mit Ihrer Gruppenauswahl übereinstimmen. In der Datei *SDDI_CKAN_DockerSourceFiles/Dockerfile* können dazu die entsprechenden Erweiterungen auf ein anderes Git Repository umgeleitet werden.
+7. Wenn Sie den Email-Support zu aktivieren möchten, öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* und tragen Sie ab Zeile 222 die entsprechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
+8. Öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* und tragen Sie in Zeile 117 einen Admin-Benutzernamen ein (Nur Kleinbuchstaben und -_). Merken Sie sich diesen Benutzernamen für Schritt 11.
+9. Um die Docker Images zu erstellen und alle Docker Container zu starten, führen Sie den folgenden Befehl in einer Terminalumgebung wie Windows PowerShell aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
+:exclamation: Bevor Sie den folgenden Befehl ausführen, sollten Sie zuerst in das Verzeichnis *SDDI_CKAN_DockerSourceFiles/contrib/docker/* gehen.
+```
+docker-compose up -d --build
+```
+
+10. Öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/windows/SetupGruppenSDDIThemenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dies erstellt die Gruppen, welche im SDDI-Paket verwendet werden.
 11. Öffnen Sie die Datei *Setup Systemadmin erstellen.bat* und tragen Sie hier den selben Benutzernamen ein wie in Schritt 7. Führen Sie die Datei anschließend aus.
-12. Es wird empfohlen auch die Datei *Setup Organisationen SDDI Themenplattform.bat* auszuführen. Diese erstellt SDDI-konforme Organisationen im Katalog.
+12. Es wird empfohlen auch die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/windows/SetupOrganisationenSDDIThemenplattform.bat* auszuführen. Diese erstellt SDDI-konforme Organisationen im Katalog.
+
+
+### Basis-Installation - Linux
+
+1. Installieren Sie [Docker](https://docs.docker.com/get-docker/) auf Ihrem Betriebssystem.
+2. Clonen Sie die SDDI-CKAN-Docker Installationsdateien in ein beliebiges Verzeichnis auf Ihrem Computer:  
+`cd INSTALL_DIRECTORY` `git clone https://github.com/tum-gis/SDDI-CKAN-Docker.git`
+3. Öffenen Sie die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/.env* im Terminal oder mit einem Texteditor. Ändern Sie den Wert CKAN_SITE_URL auf die Adresse unter der der Katalog erreichbar sein soll, und setzen Sie ein neues Passwort für die Datenbank im Wert POSTGRES_PASSWORD.
+4. Öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* im Terminal oder mit einem Texteditor und geben Sie in Zeile 60 die URL an, unter der der Katalog erreichbar sein wird.
+5. Wenn Sie die Vorauswahl an CKAN-Extensions ändern möchten, öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* und entfernen in Zeile 109 die entsprechenden Einträge.
+6. Wenn Sie nicht mit der SDDI-Gruppenauswahl arbeiten möchten (Schritt 10), sollten Sie die Erweiterungen [grouphierarchy](https://github.com/tum-gis/ckanext-grouphierarchy-sddi), [scheming](https://github.com/tum-gis/ckanext-scheming-sddi) und [userautoaddgroup](https://github.com/tum-gis/ckanext-userautoaddgroup-sddi) entfernen oder so modifizieren, dass sie mit Ihrer Gruppenauswahl übereinstimmen. In der Datei *SDDI_CKAN_DockerSourceFiles/Dockerfile* können dazu die entsprechenden Erweiterungen auf ein anderes Git Repository umgeleitet werden.
+7. Wenn Sie den Email-Support zu aktivieren möchten, öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* und tragen Sie ab Zeile 222 die entsprechenden Werte ein (siehe [CKAN Dokumentation](https://docs.ckan.org/en/2.9/maintaining/configuration.html#email-settings)).
+8. Öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/production.ini* und tragen Sie in Zeile 117 einen Admin-Benutzernamen ein (Nur Kleinbuchstaben und -_). Merken Sie sich diesen Benutzernamen für Schritt 10.
+9. Um die Docker Images zu erstellen und alle Docker Container zu starten, führen Sie den folgenden Befehl in einer Terminalumgebung wie Windows PowerShell aus. Dieser Schritt wird einige Minuten in Anspruch nehmen.
+:exclamation: Bevor Sie den folgenden Befehl ausführen, sollten Sie zuerst in das Verzeichnis *SDDI_CKAN_DockerSourceFiles/contrib/docker/* gehen.
+```
+docker-compose up -d --build
+```
+10. Im Gegensatz zur Installation für Windows haben wir die Schritte 10 bis 12 in einem Setup-Skript zusammengefasst, damit Sie die restlichen Schritte leichter nachvollziehen können. Wir haben alle erforderlichen Befehle in einem Skript zusammengefasst, das sich [hier](SDDI_CKAN_DockerSourceFiles/contrib/docker/linux/SetupScript.sh) befindet. Sie müssen dieses Skript ausführen und den Installationsprozess in der Terminalumgebung verfolgen.
+Wechseln Sie zunächst in den entsprechenden Ordner *SDDI_CKAN_DockerSourceFiles/contrib/docker/linux/* und führen Sie dann:
+```
+.\SetupScript.sh
+```
+&nbsp;
+
 
 ### Initialisierung der Datenbank
 
@@ -74,14 +105,14 @@ Je nach dem welche Docker-Version installiert ist, kann die Standard-Adresse von
 ### Gruppen und Organisationen
 
 #### Gruppen
-Im Ramen der Themenplattform Smarte Städte und Regionen sind 8 Hauptkategorien, und 16 Nebenkategorien entstanden, die dabei helfen Datensätze übersichtlich zu ordnen. Diese Gruppen können mittels eines Scriptes installiert werden. Öffnen Sie die Datei *Setup Gruppen SDDI Themenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dieser Schritt sollte während der Installation bereits erfolgt sein.
+Im Ramen der Themenplattform Smarte Städte und Regionen sind 8 Hauptkategorien, und 16 Nebenkategorien entstanden, die dabei helfen Datensätze übersichtlich zu ordnen. Diese Gruppen können mittels eines Scriptes installiert werden. Öffnen Sie die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/windows/SetupGruppenSDDIThemenplattform.bat* und setzen Sie die URL ein, unter der der Katalog erreichbar sein wird. Führen Sie das Script anschließend aus. Dieser Schritt sollte während der Installation bereits erfolgt sein.
 
-Um eigene Gruppen zu erstellen, kann die Datei *Setup Gruppen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
+Um eigene Gruppen zu erstellen, kann die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/windows/SetupGruppenTemplate.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
 #### Organisationen
-In CKAN werden Benuter verschiedenen Organisationen zugeordnet. Die Katalogplattform kann direkt mit den organisationen befüllt werden, welche in der Themenplattform Smarte Städte und Regionen eine Rolle spielen. Führen Sie hierzu die Datei *Setup Organisationen SDDI Themenplattform.bat* aus.
+In CKAN werden Benuter verschiedenen Organisationen zugeordnet. Die Katalogplattform kann direkt mit den organisationen befüllt werden, welche in der Themenplattform Smarte Städte und Regionen eine Rolle spielen. Führen Sie hierzu die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/windows/SetupOrganisationenSDDIThemenplattform.bat* aus.
 
-Um eigene Gruppen zu erstellen, kann die Datei *Setup Organisationen Template.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
+Um eigene Gruppen zu erstellen, kann die Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/windows/SetupOrganisationenTemplate.bat* verwendet werden. Öffnen Sie sie mit einem Texteditor und bearbeiten Sie ihre Gruppe(n).
 
 
 ### Troubleshooting
@@ -157,7 +188,7 @@ docker_ckan_db: Enthält die Datenbank von CKAN (Benutzer, Organisationen, Grupp
 
 #### Solr
 
-Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür müssen in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeilen 67 und 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
+Sollte es bei der Installation von Solr zu Problemen kommen, kann es helfen das SOlr Web-Interface aufzurufen. Hierfür müssen in der Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/docker-compose.yml* die Zeilen 67 und 68 entkommentiert werden. Dies öffnet den Port 8983, sodass das Solr Web-Interface unter der Adresse `localhost:8983/solr` erreichbar ist.
 
 
 ## Modifizierung und Handhabung des Katalogs
@@ -173,10 +204,10 @@ Wenn Ihnen die Bedienung von VIM nicht zusagt, können Sie mit dem Befehl
 Hierzu müssen analog zum vorherigen Schritt ebenfalls Werte in der Datei *production.ini* geändert werden. Die Entsprechenden Werte lauten `ckan.featured_groups` und `ckan.featured_orgs`
 * Hinzufügen von neuen Icons/Bildern:  
 Sie können Bilder entweder mit neuen Datensätzen hochladen, oder diese direkt in CKAN verankern. Letzteres empfiehlt sich z.B. für Gruppen-Icons. Vor der Installation können Sie Bilddatei im Ordner  
-*SDDI-CKAN-Docker source files/ckan/public/base/images* ablegen. Wenn Sie Bilddateien nachträglich hinzufügen wollen, können Sie dies mittels dem Befehl  
+*SDDI_CKAN_DockerSourceFiles/ckan/public/base/images* ablegen. Wenn Sie Bilddateien nachträglich hinzufügen wollen, können Sie dies mittels dem Befehl  
 `docker cp PFAD_ZUM_BILD/bild.jpg ckan:/usr/lib/ckan/venv/src/ckan/ckan/public/base/images/bild.jpg` tun.
 * Ändern von Beschreibungen & Texten:  
-In CKAN werden sämtliche Unterseiten des Katalogs über [Jinja2-Templates](https://jinja.palletsprojects.com/en/2.11.x/) erstellt. Wenn Sie also einen bestimmten Text ändenr möchten, müssen Sie hierzu das entsprechende Template ändern. Das Template für die Seite "Über uns" ist z.B. zu finden unter: *SDDI-CKAN-Docker source files/ckan/templates/home/snippets/about_text.html*. Analog zu den vorherigen Punkten können Sie das Template auch amm laufenden Container ändern. Hierzu wäre der Pfad innerhalb des Containers */usr/lib/ckan/venv/src/ckan/ckan/templates/home/snippets/about_text.html* Sie können diese Datei entweder direkt mit VIM bearbeiten, oder auf den Desktop kopieren und dort bearbeiten. Anschließend muss der CKAN Container neu gestartet werden.
+In CKAN werden sämtliche Unterseiten des Katalogs über [Jinja2-Templates](https://jinja.palletsprojects.com/en/2.11.x/) erstellt. Wenn Sie also einen bestimmten Text ändenr möchten, müssen Sie hierzu das entsprechende Template ändern. Das Template für die Seite "Über uns" ist z.B. zu finden unter: *SDDI_CKAN_DockerSourceFiles/ckan/templates/home/snippets/about_text.html*. Analog zu den vorherigen Punkten können Sie das Template auch amm laufenden Container ändern. Hierzu wäre der Pfad innerhalb des Containers */usr/lib/ckan/venv/src/ckan/ckan/templates/home/snippets/about_text.html* Sie können diese Datei entweder direkt mit VIM bearbeiten, oder auf den Desktop kopieren und dort bearbeiten. Anschließend muss der CKAN Container neu gestartet werden.
 * Übersicht über die registrierten Benutzer:  
 Die Website `http://localhost:5000/users/` liefert Ihnen (wenn Sie als Systemadministrator eingeloggt sind) sämtliche Benutzer auf.
 * Benutzer einer Organisation hinzufügen:  
@@ -184,9 +215,9 @@ Um Benutzer einer Organisation hinzuzufügen, klicken Sie auf die entsprechende 
 * Einen weiteren Systemadministrator hinzufügen:  
 Um einen weiteren Systemadministrator hinzuzufügen, führen Sie den Befehl `docker exec -it ckan /usr/local/bin/ckan-paster --plugin=ckan sysadmin -c /etc/ckan/production.ini add benutzername` aus. Der Benutzername darn nur aus Kleinbuchstaben und den Zeichen - und _ bestehen. Ist der Benutzername im Katalog bereits registriert, wird der entpsrechende Benutzer zum Systemadministrator befördert, ansonsten wird ein neuer Benutzer angelegt.
 * Eine Erweiterung hinzufügen:  
-Möchten Sie eine Erweiterung zu CKAN hinzufügen, können Sie dies entweder in der Datei *SDDI-CKAN-Docker source files/Dockerfile* tun, oder im laufenden Container mit den Befehlen `docker exec -it -u 0 ckan bash` `cd /usr/lib/ckan/venv/src` `. /usr/lib/ckan/venv/bin/activate` `pip install -e "git+https//github.com/LINK_ZUR_ERWEITERUNG.git#egg=NAME_DER_ERWEITERUNG"`. Starten Sie den CKAN Container anschließend mit `docker restart ckan` neu.
+Möchten Sie eine Erweiterung zu CKAN hinzufügen, können Sie dies entweder in der Datei *SDDI_CKAN_DockerSourceFiles/Dockerfile* tun, oder im laufenden Container mit den Befehlen `docker exec -it -u 0 ckan bash` `cd /usr/lib/ckan/venv/src` `. /usr/lib/ckan/venv/bin/activate` `pip install -e "git+https//github.com/LINK_ZUR_ERWEITERUNG.git#egg=NAME_DER_ERWEITERUNG"`. Starten Sie den CKAN Container anschließend mit `docker restart ckan` neu.
 * Datapusher und redis:  
-CKAN verfügt über die beiden Erweiterungen Datapusher und redis. Datapusher kann verwendet werden, um Dateien in Datensätzen besser zu verwalten (siehe hierzu die [Dokumentation](https://docs.ckan.org/projects/datapusher/en/latest/)). Redis kann verwendet werden, um asynchrone Hintergrundaufgaben in CKAN zu verbessern. Um eine der beiden Erweiterungen oder beide zu installieren, sollte der *docker-compose* Setup erneut durchgeführt werden. Ändern Sie hierzu in der Datei *SDDI-CKAN-Docker source files/contrib/docker/ckan-entrypoint.sh* die Zeilen 10, 12, 26, und 57-59 und in der Datei *SDDI-CKAN-Docker source files/contrib/docker/docker-compose.yml* die Zeilen 21, 30-31, 42-46 und 71-74. Stellen Sie beim Speichern sicher, dass die Datei *ckan-entrypoint.sh* mit der Zeilenenden-Kodierung "LF" gespeichert wird, und nicht mit "CR LF". Setzen Sie analog zu oben in der Datei *production.ini* die entprechenden Werte für Datapusher und redis.
+CKAN verfügt über die beiden Erweiterungen Datapusher und redis. Datapusher kann verwendet werden, um Dateien in Datensätzen besser zu verwalten (siehe hierzu die [Dokumentation](https://docs.ckan.org/projects/datapusher/en/latest/)). Redis kann verwendet werden, um asynchrone Hintergrundaufgaben in CKAN zu verbessern. Um eine der beiden Erweiterungen oder beide zu installieren, sollte der *docker-compose* Setup erneut durchgeführt werden. Ändern Sie hierzu in der Datei *SDDI_CKAN_DockerSourceFiles/contrib/docker/ckan-entrypoint.sh* die Zeilen 10, 12, 26, und 57-59 und in der Datei *SDDI_CKAN_DockerSsourceFiles/contrib/docker/docker-compose.yml* die Zeilen 21, 30-31, 42-46 und 71-74. Stellen Sie beim Speichern sicher, dass die Datei *ckan-entrypoint.sh* mit der Zeilenenden-Kodierung "LF" gespeichert wird, und nicht mit "CR LF". Setzen Sie analog zu oben in der Datei *production.ini* die entprechenden Werte für Datapusher und redis.
 * Nachdem Sie Änderungen vorgenommen haben am laufenden Container, empfielt es sich den Befehl  
 `docker commit ckan [COMMIT_NAME]` auszuführen. Dies erstellt einen Snapshot vom Container. Sie können später diesen Snapshot wieder starten mit dem Befehl  
 `docker run -d -p 5000:5000 --link db:db --link solr:solr ckan/ckan`
@@ -200,7 +231,7 @@ Einen kleinen Einblick in die Bedienung von CKAN und der Katalogplattform liefer
 
 ## Verwendete Erweiterungen
 
-Die Katalogplattform verwendet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI-CKAN-Docker source files/production.ini* in Zeile 107 die entprechenden Einträge entfernt werden.
+Die Katalogplattform verwendet verschiedene Erweiterungen um die für die SDDI benötigte Funktionalität bereitzustellen. Nachfolgend steht eine Liste mit allen verwendeten Erweiterungen. Um eine oder mehrere der Erweiterungen im Katalog zu deaktivieren, können in der Datei *SDDI_CKAN_DockerSourceFiles/production.ini* in Zeile 107 die entprechenden Einträge entfernt werden.
 
 * [Stats](https://github.com/ckan/ckan/tree/master/ckanext/stats)
 * [TextView](https://github.com/ckan/ckan/tree/master/ckanext/textview)

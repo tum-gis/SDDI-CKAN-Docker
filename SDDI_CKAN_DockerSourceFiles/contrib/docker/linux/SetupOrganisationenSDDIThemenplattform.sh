@@ -1,0 +1,12 @@
+echo This script creates the organizations that are relevant for SDDI and the Smart Cities and Regions theme platform.
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Technische Universit„t München (TUM)' name='technische-universitat-munchen'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Lehrstuhl für Geoinformatik' name='lehrstuhl-fur-geoinformatik' groups:'[{\"capacity\":\"public\",\"name\":\"technische-universitat-munchen\"}]'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Bayerische Vermessungsverwaltung' name='bayerische-vermessungsverwaltung'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Bayern Innovativ' name='bayern-innovativ'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Themenplattform Digitales Planen und Bauen' name='themenplattform-digitales-planen-und-bauen' groups:'[{\"capacity\":\"public\",\"name\":\"bayern-innovativ\"}]'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Themenplattform Smarte Städte und Regionen' name='themenplattform-smarte-stadte-und-regionen' groups:'[{\"capacity\":\"public\",\"name\":\"bayern-innovativ\"}]'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Firmen' name='firmen'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Technologieanbieter' name='technologieanbieter'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Softwareanbieter' name='softwareanbieter' groups:'[{\"capacity\":\"public\",\"name\":\"technologieanbieter\"}]'" /
+docker exec -it ckan sh -c ". usr/lib/ckan/venv/bin/activate; ckanapi action organization_create -c etc/ckan/production.ini title='Hardwareentwickler' name='hardwareentwickler' groups:'[{\"capacity\":\"public\",\"name\":\"technologieanbieter\"}]'" /
+echo "The setup is finished."
