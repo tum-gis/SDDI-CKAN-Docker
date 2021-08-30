@@ -22,7 +22,7 @@ build/*
 tmp/*
 solr_runtime/*
 fl_notes.txt
-*.ini
+#*.ini
 !*/production.ini
 .noseids
 *~
